@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
+});
+Route::get('/mamaform', function () {
+    return view('mamaform');
+});
+Route::get('/mamaconfirm', function () {
+    return view('mamaconfirm');
+});
+Route::get('/kidform', function () {
+    return view('kidform');
+});
+Route::get('/kidconfirm', function () {
+    return view('kidconfirm');
 });
