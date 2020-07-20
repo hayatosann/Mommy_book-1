@@ -1,0 +1,219 @@
+/* 一覧表示画面 read_layout.phpのCSS */
+/* モバイル */
+@media screen and (max-width: 960px){
+    *{
+        margin:0;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        background-color: #F5ECF8;
+
+    }
+    header{
+        text-align: center;
+        background-color: #F8AAF3;
+        color: white;
+        padding: 5% 10%;
+    }
+    main{
+        padding: 0 10%;
+        color: #707070;
+    }
+    button,a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: solid 3px;
+        border-color: #F8AAF3;
+        background-color: white;
+        border-radius: 15px;
+        color: #707070;
+        font-size: 32px;
+    }
+    a{
+        text-decoration: none;
+    }
+    ul{
+        list-style: none;
+    }
+    .container_btn{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: solid 5px;
+        border-color: #F8AAF3;
+        border-radius: 30px;
+        background-color: white;
+        margin-top: 10%;
+        padding: 5% 0;
+        font-size: 24px;
+    }
+    .wrapper{
+        width: 80%;
+    }
+    .wrapper_upper h2{
+        text-align: center;
+        font-weight: lighter;
+    }
+    .wrapper_bottom{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 60%;
+    }
+    .btn_create{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    .btn_edit{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    /* 検診結果一覧表示 */
+    .wrapper_display{
+        border: solid 5px;
+        border-color: #F8AAF3;
+        background-color: white;
+        border-radius: 30px;
+        margin: 10% 0%;
+        padding: 5% 8%;
+    }
+    .wrapper_display ul{
+        padding: 0%;
+    }
+    .container_back{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+
+}
+/* デスクトップ */
+@media screen and (min-width: 960px){
+    *{
+        margin:0;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        background-color: #F5ECF8;
+
+    }
+    header{
+        text-align: center;
+        background-color: #F8AAF3;
+        color: white;
+        font-size: 36px;
+        padding: 5% 10%;
+    }
+    main{
+        padding: 0 10%;
+        color: #707070;
+    }
+    button, a{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: solid 3px;
+        border-color: #F8AAF3;
+        background-color: white;
+        border-radius: 15px;
+        margin-top: 10%;
+        color: #707070;
+        font-size: 36px;
+    }
+    a{
+        text-decoration: none;
+    }
+    ul{
+        list-style: none;
+    }
+    footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .container_btn{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: solid 5px;
+        border-color: #F8AAF3;
+        border-radius: 30px;
+        background-color: white;
+        margin-top: 5%;
+        padding: 5% 0;
+        font-size: 36px;
+    }
+    .wrapper{
+        width: 80%;
+    }
+    .wrapper_upper h2{
+        text-align: center;
+        font-weight: lighter;
+    }
+    .wrapper_bottom{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 60%;
+    }
+    .btn_create{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 40%;
+    }
+    .btn_edit{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .edit, .register{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .container_display{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .wrapper_display{
+        border: solid 5px;
+        border-color: #F8AAF3;
+        background-color: white;
+        border-radius: 30px;
+        margin: 3% 0%;
+        padding: 2% 3%;
+        width: 30%;
+        font-size: 36px;
+
+    }
+    .wrapper_display ul{
+        padding: 0%;
+    }
+    .container_back{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+    .btn_back button{
+        margin-top: 10%;
+    }
+    .back{
+        width: 300px;
+        padding: 5% 10%;
+    }
+
+}
