@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+
+Route::get('/mommy', function () {
+    return view('mommy');
+});
+Route::get('/baby', function () {
+    return view('baby');
+});
+
 Route::get('/mamaform', function () {
     return view('mamaform');
 });
@@ -28,3 +36,4 @@ Route::get('/kidform', function () {
 Route::get('/kidconfirm', function () {
     return view('kidconfirm');
 });
+
