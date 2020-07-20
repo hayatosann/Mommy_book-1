@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1.title {
+    height: 33vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #FA8BC3;
+    font-size: 3.5em;
+  }
+  
+  h2.title {
+    color: #FA8BC3;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  p.message{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #FA8BC3;
+    font-size: 1.5em;
+  }
+  
+  h4.message {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #999ca1;
+    font-size: 1.5em;
+  }
+  
+  .login {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .btn-flat-border {
+    display: block;
+    text-decoration: none;
+    color: #FA8BC3;
+    border: solid 1px #FA8BC3;
+    border-radius: 3px;
+    transition: .4s;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 0.3em 1em;
+    min-width: 200px;
+  }
+  
+  .btn-flat-border:hover {
+    background: #FA8BC3;
+    color: white;
+  }
+  
+  /*---------mamaform----------*/
+  label {
+    color: #999ca1;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button a {
+    display: block;
+    padding: 0.3em 0;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: .4s;
+    margin-right: 10px;
+    text-align: center;
+    width: 100%;
+    color: #999ca1;
+    border: 1px solid #999ca1;
+  }
+  
+  .button a:last-child {
+    margin-right: 0;
+  }
+  
+  .button a:hover {
+    background: #999ca1;
+    color: white;
+  }
+  
