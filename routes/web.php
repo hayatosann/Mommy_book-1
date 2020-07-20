@@ -17,6 +17,43 @@ Route::get('/', function () {
     return view('login');
 });
 
+//妊婦健診一覧表示画面
+Route::get('momcheckups', function() {
+    return view('momcheckups');
+});
+// 妊婦健診登録・編集画面
+Route::get('momcheckups_form', function() {
+    return view('momcheckups_form');
+});
+
+// 胎児進捗一覧表示画面
+Route::get('babygrowth', function(){
+    return view('babygrowth');
+});
+// 胎児進捗登録・編集画面
+Route::get('babygrowth_form', function() {
+    return view('babygrowth_form');
+});
+
+// 赤ちゃん検診一覧表示画面
+Route::get('babycheckups', function(){
+    return view('babycheckups');
+});
+// 赤ちゃん検診登録・編集画面
+Route::get('babycheckups_form', function(){
+    return view('babycheckups_form');
+});
+
+
+// 予防接種一覧表示画面
+Route::get('vaccination', function(){
+    return view('vaccination');
+});
+// 予防接種登録・編集画面
+Route::get('vaccination_form', function(){
+    return view('vaccination_form');
+
+
 Route::get('/mommy', function () {
     return view('mommy');
 });
@@ -35,5 +72,6 @@ Route::get('/kidform', function () {
 });
 Route::get('/kidconfirm', function () {
     return view('kidconfirm');
+
 });
 
