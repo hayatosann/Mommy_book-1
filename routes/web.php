@@ -52,7 +52,7 @@ Route::get('vaccination', function(){
 // 予防接種登録・編集画面
 Route::get('vaccination_form', function(){
     return view('vaccination_form');
-
+});
 
 Route::get('/mommy', function () {
     return view('mommy');
