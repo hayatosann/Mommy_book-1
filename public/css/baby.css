@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* header-css */
+header {
+  height: 65px;
+  background-color: pink;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.header-left {
+  margin-left: 20px;
+}
+.header-left h2 {
+  font-size: 27px;
+}
+.header-right {
+  margin-right: 20px;
+}
+.fas {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* babies-wrapper css */
+.bars {
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+
+}
+.bars a {
+  font-size: 7px;
+  background-color: rgb(10, 157, 255);
+  color: black;
+  text-decoration: none;
+  padding: 3px 10px;
+  border: 2px solid black;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.bars a:hover {
+  opacity: 0.5;
+}
+.create_baby a {
+  background-color: orange;
+  border-radius: 50%;
+}
+.babies .girl {
+  background-color: pink;
+}
+
+/* top-wrappper css */
+.top-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  border-radius: 30px;
+  margin: 0 10px;
+  padding: 15px 10px;
+}
+.box img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+/* main-wrapper css */
+.heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.baby-details img {
+  width: 80%;
+}
+.mommy-details {
+  margin-bottom: 30px;
+}
+.graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details {
+  display: flex;
+  justify-content: center;
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail h2 {
+  font-size: 15px;
+  text-align: center;
+}
+.detail p {
+  border: 1px solid black;
+  width: 160px;
+  height: 15vh;
+  margin: 15px 10px 10px 0;
+  text-align: center;
+}
+.detail-button {
+  width: 80%;
+  text-align: end;
+}
+.detail-button a {
+  font-size: 7px;
+  background-color: orange;
+  color: black;
+  text-decoration: none;
+  padding: 3px 10px;
+  border: 3px solid black;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.detail-button a:hover {
+  opacity: 0.5;
+}
+
+/* button-wrapper css */
+.button-wrapper {
+  margin: 50px 0;
+}
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.buttons button {
+  width: 40%;
+  background-color: yellow;
+  border: 3px solid black;
+  padding: 10px 17px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 10px 5px;
+}
+.buttons a {
+  color: black;
+  text-decoration: none;
+}
+
+.buttons button:hover {
+  /* opacity: 0.5; */
+  background-color: greenyellow;
+}
+
+
+/* footer css */
+footer {
+  height: 40px;
+  background-color: pink;
+}

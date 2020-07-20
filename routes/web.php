@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
 //妊婦健診一覧表示画面
 Route::get('momcheckups', function() {
     return view('momcheckups');
@@ -51,5 +52,26 @@ Route::get('vaccination', function(){
 // 予防接種登録・編集画面
 Route::get('vaccination_form', function(){
     return view('vaccination_form');
+
+
+Route::get('/mommy', function () {
+    return view('mommy');
+});
+Route::get('/baby', function () {
+    return view('baby');
+});
+
+Route::get('/mamaform', function () {
+    return view('mamaform');
+});
+Route::get('/mamaconfirm', function () {
+    return view('mamaconfirm');
+});
+Route::get('/kidform', function () {
+    return view('kidform');
+});
+Route::get('/kidconfirm', function () {
+    return view('kidconfirm');
+
 });
 
