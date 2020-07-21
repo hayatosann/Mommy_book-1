@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Maternity_checkupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,10 @@ Route::get('momcheckups', function() {
 });
 // 妊婦健診登録・編集画面
 Route::get('momcheckups_form', function() {
-    return view('momcheckups_form');
+    return view('create');
 });
+
+// Route::resource('maternity_checkups', 'Maternity_checkupController');
 
 // 胎児進捗一覧表示画面
 Route::get('babygrowth', function(){
@@ -75,3 +78,8 @@ Route::get('/kidconfirm', function () {
 
 });
 
+
+
+// Route::resource('maternity_checkups', 'Maternity_checkupController');
+Route::get('maternity_checkups', 'Maternity_checkupController@create')->name('maternity_checkups');
+Route::post('maternity_checkups', 'Maternity_checkupController@store')->name('maternity_checkups');

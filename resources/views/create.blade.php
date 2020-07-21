@@ -9,13 +9,17 @@
 検診結果
 @endsection
 
+@section('form')
+<form action="{{route('maternity_checkups')}}" class="" method="post">
+@endsection
+
 @section('lists')
-<li>検査年月日: <span><input type="date"></span></li>
-<li>妊娠週数: <span><input type="number"></span> 週</li>
-<li>子宮底調: <span><input type="number"></span> cm</li>
-<li>体重: <span><input type="text"></span> ㎏</li>
-<li>腹囲: <span><input type="number"></span> cm</li>
-<li>血圧: <span><input type="number"></span></li>
+<li>検査年月日: <span><input type="date" name="date"></span></li>
+<li>妊娠週数: <span><input type="number" name="pregnancy_week"></span> 週</li>
+<li>子宮底調: <span><input type="number" name="fundal_height"></span> cm</li>
+<li>体重: <span><input type="text" name="weight"></span> ㎏</li>
+<li>腹囲: <span><input type="number" name="abdominal_circumference"></span> cm</li>
+<li>血圧: <span><input type="number" name="blood_pressure"></span></li>
 <li>浮腫:
     <span>
         <select name="edema" id="">
@@ -46,7 +50,7 @@
         </select>
     </span>
 </li>
-<li>備考欄: <span><input type="textarea"></span></li>
+<li>備考欄: <span><input type="textarea" name="note"></span></li>
 @endsection
 
 @section('back')

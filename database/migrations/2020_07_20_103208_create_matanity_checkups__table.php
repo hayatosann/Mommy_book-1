@@ -14,7 +14,7 @@ class CreateMatanityCheckupsTable extends Migration
     public function up()
     {
         // matanity_checkupsテーブルの情報
-        Schema::create('matanity_checkups', function (Blueprint $table) {
+        Schema::create('maternity_checkups', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
             $table->integer('pregnancy_week');
@@ -40,6 +40,6 @@ class CreateMatanityCheckupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matanity_checkups');
+        Schema::dropIfExists('maternity_checkups');
     }
 }

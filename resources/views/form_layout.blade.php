@@ -14,7 +14,9 @@
        </div>
    </header>
    <main>
-        <form action="" class="" method="">
+        <!-- <form action="" class="" method=""> -->
+            @yield('form')
+            @csrf
             <div class="container_btn">
                 <div class="wrapper">
                     <div class="wrapper_upper">
