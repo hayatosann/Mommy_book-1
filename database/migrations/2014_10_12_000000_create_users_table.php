@@ -13,13 +13,20 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        // usersテーブルの情報
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->increments('id');
+            $table->string('nickname', 20);
+            // nullable: nullを入れられるようにする
+            $table->string('gender', 10)->nullable();
+            $table->integer('zipcode');
+            // ->unique(): 重複した値が入らないようにする　
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->date('birthdate')->nullable();
             $table->rememberToken();
+            // timestampsが空の値のままで、created_atとupdated_atをかねる
             $table->timestamps();
         });
     }
