@@ -15,8 +15,8 @@ class CreateBabyTeethTable extends Migration
     {
         // baby_teethテーブルの情報
         Schema::create('baby_teeth', function (Blueprint $table) {
-            $table->increments('id', 11);
-            $table->unsignedInteger('baby_checkups_id');
+            $table->increments('id');
+            $table->unsignedInteger('baby_checkup_id');
             $table->string('teeth_decay', 50);
             $table->string('clearness', 50);
             $table->string('gingival_ mucous', 50);
@@ -25,7 +25,7 @@ class CreateBabyTeethTable extends Migration
             $table->integer('replaced_teeth')->nullable();
             $table->timestamps();
             // 外部キー
-            $table->foreign('baby_checkups_id')->references('id')->on('baby_checkups');
+            $table->foreign('baby_checkup_id')->references('id')->on('baby_checkups');
         });
     }
 
