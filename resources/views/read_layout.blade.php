@@ -1,6 +1,4 @@
 <!-- 一覧表示画面のviewテンプレート -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
