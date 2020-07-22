@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>mommy</title>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/mommy.css') }}">
+  <link rel="stylesheet" href="{{ asset('/assets/css/mommy.css')}}">
 </head>
 <body>
   <header>
@@ -43,7 +43,7 @@
         <h2>検診結果</h2>
         <p>最新の結果詳細</p>
         <div class="detail-button">
-          <a href="#">一覧ページ</a>
+          <a href="momcheckups">一覧ページ</a>
         </div>
       </div>
     </div>
@@ -51,8 +51,8 @@
 
   <div class="button-wrapper">
     <div class="buttons">
-      <button><a href="#">検診結果入力</a></button>
-      <button><a href="#">赤ちゃんページ</a></button>
+      <button><a href="momcheckups_form">検診結果入力</a></button>
+      <button><a href="baby">赤ちゃんページ</a></button>
       <button><a href="#">カレンダー</a></button>
       <button><a href="#">子育て情報一覧</a></button>
     </div>

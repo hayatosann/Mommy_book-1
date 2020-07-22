@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/CSS/style.css">
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
 
     <title>親御様のプロフィールご登録</title>
   </head>
