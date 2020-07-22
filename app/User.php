@@ -1,13 +1,16 @@
 <?php
 
 namespace App;
-
+namespace App\Maternity_checkup;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function maternity_checkup(){
+        return $this->hasMany ('App\Maternity_checkup');
+    }
     use Notifiable;
 
     /**
