@@ -14,7 +14,9 @@ class Maternity_checkupController extends Controller
      */
     public function index()
     {
-        // return view('create');
+        $maternity_checkups = Maternity_checkup::all();
+        // dd($maternity_checkups);
+        return view('maternity_checkups.read', ['maternity_checkups'=> $maternity_checkups]);
     }
 
     /**

@@ -32,17 +32,17 @@
         </div>
         <div class="container_display">
             <!-- 以下一覧表示 繰り返し-->
-            <div class="wrapper_display">
-                <div class="wrapper_lists">
-                    <ul class="lists_title">
+            <!-- <div class="wrapper_display"> -->
+                <!-- <div class="wrapper_lists"> -->
+                    <!-- <ul class="lists_title"> -->
                         @yield('lists')
-                    </ul>
-                     <div class="btn_edit">
+                    <!-- </ul> -->
+                     <!-- <div class="btn_edit"> -->
                         <!-- <button class="edit">編集</button> -->
-                        @yield('edit')
-                    </div>
+                        <!-- @yield('edit') -->
+                    <!-- </div>
                 </div>
-            </div>
+            </div> -->
             <!-- 一覧表示 繰り返しここまで -->
         </div>
    </main>
