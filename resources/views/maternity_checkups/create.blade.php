@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('maternity_checkups')}}" class="" method="post">
+<form action="{{route('maternity_checkups.store')}}" class="" method="post">
 @endsection
 
 @section('lists')
