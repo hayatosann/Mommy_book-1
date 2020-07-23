@@ -87,5 +87,5 @@ Route::post('maternity_checkups/store', 'Maternity_checkupController@store')->na
 Route::get('maternity_checkups', 'Maternity_checkupController@index')->name('maternity_checkups.index');
 
 
-Route::get('maternity_checkups/{id}/edit/{hoge}', 'Maternity_checkupController@edit')->name('maternity_checkups.edit'); 
+Route::get('maternity_checkups/{id}/edit', 'Maternity_checkupController@edit')->name('maternity_checkups.edit'); 
 Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update'); 
