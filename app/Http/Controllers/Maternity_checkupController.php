@@ -100,16 +100,16 @@ class Maternity_checkupController extends Controller
      */
     public function destroy(int $id)
     {
-        dd($id);
+        // dd($id);
         // dd($id);
         // // Maternity_checkupモデルを使用し、maternity_checkupsテーブルから$idと
         // // 一致するidを持つデータを取得
-        // $maternity_checkup = Maternity_checkup::find($id);
+        $maternity_checkup = Maternity_checkup::find($id);
         // // dd($id);
-        // $maternity_checkup->delete();
+        $maternity_checkup->delete();
 
-        //  return redirect('maternity_checkups');
+         return redirect('maternity_checkups');
 
-        // return redirect()
+ 
     }
 }
