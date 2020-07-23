@@ -73,7 +73,7 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit($id)
     {
         
         $maternity_checkup = Maternity_checkup::find($id); 

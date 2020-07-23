@@ -22,24 +22,12 @@
 <li>血圧: <span><input type="number" name="blood_pressure" id="blood_pressure" value="{{ old('blood_pressure', $maternity_checkup->blood_pressure) }}"></span></li>
 <li>浮腫:
     <span>
-        <select name="edema" id="edema" value="{{ old('edema', $maternity_checkup->edema) }}">
-            <option class="sample" value=""></option>
-            <option class="sample" value="mainus">-</option>
-            <option class="sample" value="plus">+</option>
-            <option class="sample" value="two_plus">++</option>
-        </select>
-        <script>
-            var edema = document.getElementById('edema');
-            var value = edema.getAttribute('value');
-            var eles = document.getElementsByClassName('sample');
-            for (ele of eles){
-                var input = ele.getAttribute('value');
-                if (input == value) {
-                    ele.setAttribute("selected");
-                    console.log(ele);
-                }
-            }
-        </script>
+        <select name="edema" id="edema">
+            <option {{ old('edema', $maternity_checkup->edema) == '' ? 'selected' : '' }}></option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'mainus' ? 'selected' : '' }} class="sample" value="mainus">-</option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'plus' ? 'selected' : '' }} class="sample" value="plus">+</option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'two_plus' ? 'selected' : '' }} class="sample" value="two_plus">++</option>
+        </select>  
     </span>
 </li>
 <li>尿蛋白:
