@@ -10,7 +10,7 @@
 @endsection
 
 @section('register')
-<a href="/maternity_checkups/create" class="register">登録</a>
+<a href="{{ route('maternity_checkups.create') }}" class="register">登録</a>
 @endsection
 
 @section('lists')
