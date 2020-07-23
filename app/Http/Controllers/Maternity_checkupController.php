@@ -62,10 +62,10 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -75,8 +75,8 @@ class Maternity_checkupController extends Controller
      */
     public function edit(int $id)
     {
-        dd($id);
-        // $maternity_checkup = Maternity_checkup::find($id); 
+        
+        $maternity_checkup = Maternity_checkup::find($id); 
 
         return view('maternity_checkups.edit', compact('maternity_checkup'));
     }
