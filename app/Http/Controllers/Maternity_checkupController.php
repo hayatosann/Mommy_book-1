@@ -17,6 +17,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkups = Maternity_checkup::all();
         // dd($maternity_checkups);
         return view('maternity_checkups.index', ['maternity_checkups'=> $maternity_checkups]);
+        // return view('momcheckups');
     }
 
     /**
@@ -96,8 +97,16 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        // Maternity_checkupモデルを使用し、maternity_checkupsテーブルから$idと
+        // 一致するidを持つデータを取得
+        $maternity_checkup = Maternity_checkup::find($id);
+        // dd($id);
+        $maternity_checkup->delete();
+
+         return redirect('maternity_checkups');
+
+        // return redirect()
     }
 }

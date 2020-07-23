@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
         </form>
     <footer>
     <!-- 完了ボタン -->
