@@ -31,7 +31,7 @@
                 <li>備考欄:{{$maternity_checkup->note}}</li>
             </ul>
             <div class="btn_edit">
-            <a href="" class="edit">編集</a>
+            <form action="{{ route('maternity_checkups.edit', ['id' => $maternity_checkup->id]) }}" class="edit" method="post">編集</form>
                 <!-- @yield('edit') -->
             </div>
         </div>
