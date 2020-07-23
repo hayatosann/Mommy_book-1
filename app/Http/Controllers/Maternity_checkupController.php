@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Maternity_checkup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class Maternity_checkupController extends Controller
 {
     /**
@@ -63,10 +64,10 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,13 +100,15 @@ class Maternity_checkupController extends Controller
      */
     public function destroy(int $id)
     {
-        // Maternity_checkupモデルを使用し、maternity_checkupsテーブルから$idと
-        // 一致するidを持つデータを取得
-        $maternity_checkup = Maternity_checkup::find($id);
+        dd($id);
         // dd($id);
-        $maternity_checkup->delete();
+        // // Maternity_checkupモデルを使用し、maternity_checkupsテーブルから$idと
+        // // 一致するidを持つデータを取得
+        // $maternity_checkup = Maternity_checkup::find($id);
+        // // dd($id);
+        // $maternity_checkup->delete();
 
-         return redirect('maternity_checkups');
+        //  return redirect('maternity_checkups');
 
         // return redirect()
     }

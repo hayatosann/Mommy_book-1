@@ -80,7 +80,16 @@ Route::get('vaccination', function(){
 
 
 
-Route::resource('maternity_checkups', 'Maternity_checkupController');
+// Route::resource('maternity_checkups', 'Maternity_checkupController');
 // Route::get('maternity_checkups', 'Maternity_checkupController@create')->name('maternity_checkups');
 // Route::post('maternity_checkups', 'Maternity_checkupController@store')->name('maternity_checkups');
 
+// Route::get('maternity_checkups/create', 'Maternity_checkupController@create')->name('maternity_checkups.create');
+// Route::post('maternity_checkups/store', 'Maternity_checkupController@store')->name('maternity_checkups.store');
+
+Route::get('maternity_checkups', 'Maternity_checkupController@index')->name('maternity_checkups.index');
+
+
+Route::get('maternity_checkups/{id}/edit/{hoge}', 'Maternity_checkupController@edit')->name('maternity_checkups.edit'); 
+Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update'); 
+Route::delete('maternity_checkups/{id}/delete', 'Maternity_checkup@destroy')->name('maternity_checkups.destroy');

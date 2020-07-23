@@ -32,9 +32,9 @@
             </ul>
             <div class="btn_edit">
                 <a href="" class="edit">編集</a>
-                <form action="{{route('maternity_checkups.destroy', $maternity_checkup->id)}}" method="POST">
-                    @csrf
-                    @method('delete')
+                <form action="{{ route('maternity_checkups.destroy', $maternity_checkup->id)}}" method="post">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
                     <button class="delete">削除</button>
                 </form>
             </div>
