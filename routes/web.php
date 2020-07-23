@@ -80,9 +80,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::resource('maternity_checkups', 'Maternity_checkupController');
-// Route::get('maternity_checkups', 'Maternity_checkupController@create')->name('maternity_checkups');
-// Route::post('maternity_checkups', 'Maternity_checkupController@store')->name('maternity_checkups');
+// Route::resource('maternity_checkups', 'Maternity_checkupController');
+Route::get('maternity_checkups', 'Maternity_checkupController@create')->name('maternity_checkups');
+Route::post('maternity_checkups', 'Maternity_checkupController@store')->name('maternity_checkups');
 
-// Route::get('maternity_checkups/edit', 'Maternity_checkupController@edit')->name('maternity_checkups.edit'); // 編集画面
-// Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update'); //更新処理
+Route::get('maternity_checkups', 'Maternity_checkupController@index')->name('maternity_checkups');
+
+
+Route::get('maternity_checkups/edit', 'Maternity_checkupController@edit')->name('maternity_checkups.edit'); 
+Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update'); 

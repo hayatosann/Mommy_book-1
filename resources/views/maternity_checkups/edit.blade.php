@@ -23,7 +23,7 @@
 <li>浮腫:
     <span>
         <select name="edema" id="edema" value="{{ old('edema', $maternity_checkup->edema) }}">
-            <option class="sample" {{ old($maternity_checkup->edema) == '' ? 'selected' : '' }} value=""></option>
+            <option class="sample" value=""></option>
             <option class="sample" value="mainus">-</option>
             <option class="sample" value="plus">+</option>
             <option class="sample" value="two_plus">++</option>
