@@ -11,6 +11,7 @@
 
 @section('form')
 <form action="{{route('maternity_checkups.update')}}" class="" method="post">
+@csrf
 @endsection
 
 @section('lists')
@@ -23,30 +24,30 @@
 <li>浮腫:
     <span>
         <select name="edema" id="edema">
-            <option {{ old('edema', $maternity_checkup->edema) == '' ? 'selected' : '' }}></option>
-            <option {{ old('edema', $maternity_checkup->edema) == 'mainus' ? 'selected' : '' }} class="sample" value="mainus">-</option>
-            <option {{ old('edema', $maternity_checkup->edema) == 'plus' ? 'selected' : '' }} class="sample" value="plus">+</option>
-            <option {{ old('edema', $maternity_checkup->edema) == 'two_plus' ? 'selected' : '' }} class="sample" value="two_plus">++</option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'none' ? 'selected' : '' }}></option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'mainus' ? 'selected' : '' }} value="mainus">-</option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'plus' ? 'selected' : '' }} value="plus">+</option>
+            <option {{ old('edema', $maternity_checkup->edema) == 'two_plus' ? 'selected' : '' }} value="two_plus">++</option>
         </select>  
     </span>
 </li>
 <li>尿蛋白:
     <span>
-        <select name="urinal_protein" >
-            <option value="none"></option>
-            <option value="mainus">-</option>
-            <option value="plus">+</option>
-            <option value="two_plus">++</option>
+        <select name="urinal_protein" id="urinal_protein">
+            <option {{ old('urinal_protein', $maternity_checkup->urinal_protein) == 'none' ? 'selected' : '' }} value="none"></option>
+            <option {{ old('urinal_protein', $maternity_checkup->urinal_protein) == 'mainus' ? 'selected' : '' }} value="mainus">-</option>
+            <option {{ old('urinal_protein', $maternity_checkup->urinal_protein) == 'plus' ? 'selected' : '' }} value="plus">+</option>
+            <option {{ old('urinal_protein', $maternity_checkup->urinal_protein) == 'two_plus' ? 'selected' : '' }} value="two_plus">++</option>
         </select>
     </span>
 </li>
 <li>尿糖:
     <span>
-        <select name="urinal_sugar" >
-            <option value="none"></option>
-            <option value="mainus">-</option>
-            <option value="plus">+</option>
-            <option value="two_plus">++</option>
+        <select name="urinal_sugar" id="urinal_sugar" >
+            <option {{ old('urinal_sugar', $maternity_checkup->urinal_sugar) == 'none' ? 'selected' : '' }} value="none"></option>
+            <option {{ old('urinal_sugar', $maternity_checkup->urinal_sugar) == 'mainus' ? 'selected' : '' }} value="mainus">-</option>
+            <option {{ old('urinal_sugar', $maternity_checkup->urinal_sugar) == 'plus' ? 'selected' : '' }} value="plus">+</option>
+            <option {{ old('urinal_sugar', $maternity_checkup->urinal_sugar) == 'two_plus' ? 'selected' : '' }} value="two_plus">++</option>
         </select>
     </span>
 </li>
