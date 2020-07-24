@@ -15,7 +15,7 @@
 
 @section('lists')
 @foreach($maternity_checkups as $maternity_checkup)
-<div class="wrapper_display">
+    <div class="wrapper_display">
         <div class="wrapper_lists">
             <ul class="lists_title">
                         <!-- @yield('lists') -->
@@ -31,17 +31,18 @@
                 <li>備考欄:{{$maternity_checkup->note}}</li>
             </ul>
             <div class="btn_edit">
-            <a href="" class="edit">編集</a>
-                <!-- @yield('edit') -->
+                <a href="" class="edit">編集</a>
+                <form action="{{ route('maternity_checkups.destroy', $maternity_checkup->id)}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button class="delete">削除</button>
+                </form>
             </div>
+
         </div>
-</div>
+    </div>
 @endforeach
 @endsection
-
-<!-- @section('edit')
-<a href="" class="edit">編集</a>
-@endsection -->
 
 @section('back')
 <a href="" class="back">戻る</a>

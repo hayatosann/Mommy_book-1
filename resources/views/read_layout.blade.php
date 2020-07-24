@@ -40,7 +40,12 @@
                      <!-- <div class="btn_edit"> -->
                         <!-- <button class="edit">編集</button> -->
                         <!-- @yield('edit') -->
-                    <!-- </div>
+                        <!-- @yield('form') -->
+                             <!-- @csrf
+                            @method('delete')
+                             <button class="delete">削除</button>
+                        </form>
+                    </div>
                 </div>
             </div> -->
             <!-- 一覧表示 繰り返しここまで -->
