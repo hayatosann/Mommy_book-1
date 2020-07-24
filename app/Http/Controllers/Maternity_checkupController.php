@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Maternity_checkup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class Maternity_checkupController extends Controller
 {
     /**
@@ -17,6 +18,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkups = Maternity_checkup::all();
         // dd($maternity_checkups);
         return view('maternity_checkups.index', ['maternity_checkups'=> $maternity_checkups]);
+        // return view('momcheckups');
     }
 
     /**
@@ -53,7 +55,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->user_id = 1;
         $maternity_checkup->save();
 
-        // return redirect()->route('mommy');
+        return redirect('maternity_checkups');
     }
 
     /**
@@ -115,8 +117,18 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        // dd($id);
+        // dd($id);
+        // // Maternity_checkupモデルを使用し、maternity_checkupsテーブルから$idと
+        // // 一致するidを持つデータを取得
+        $maternity_checkup = Maternity_checkup::find($id);
+        // // dd($id);
+        $maternity_checkup->delete();
+
+         return redirect('maternity_checkups');
+
+
     }
 }
