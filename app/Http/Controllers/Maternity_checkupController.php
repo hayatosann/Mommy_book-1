@@ -55,7 +55,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->user_id = 1;
         $maternity_checkup->save();
 
-        // return redirect()->route('mommy');
+        return redirect('maternity_checkups');
     }
 
     /**
@@ -110,6 +110,6 @@ class Maternity_checkupController extends Controller
 
          return redirect('maternity_checkups');
 
- 
+
     }
 }
