@@ -33,7 +33,7 @@
                                 <button type="submit" class="register">登録</button>
                         </div>
                         <div class="btn_edit">
-                                <button type="submit" class="edit">編集</button>
+                                <!-- <button type="submit" class="edit">編集</button> -->
                         </div>
                     </div>
                 </div>
