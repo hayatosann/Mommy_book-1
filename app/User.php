@@ -11,6 +11,10 @@ class User extends Authenticatable
     public function maternity_checkup(){
         return $this->hasMany ('App\Maternity_checkup');
     }
+
+    public function album(){
+        return $this->hasMany ('App\album');
+    }
     use Notifiable;
 
     /**
