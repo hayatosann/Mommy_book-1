@@ -10,7 +10,7 @@
 @endsection
 
 @section('register')
-<a href="/maternity_checkups/create" class="register">登録</a>
+<a href="{{ route('maternity_checkups.create') }}" class="register">登録</a>
 @endsection
 
 @section('lists')
@@ -31,12 +31,16 @@
                 <li>備考欄:{{$maternity_checkup->note}}</li>
             </ul>
             <div class="btn_edit">
-                <a href="" class="edit">編集</a>
+
+              <a href="{{ route('maternity_checkups.edit',$maternity_checkup->id) }}" class="edit">編集</a>
+                <!-- @yield('edit') -->
+
                 <form action="{{ route('maternity_checkups.destroy', $maternity_checkup->id)}}" method="post">
                     @csrf
                     @method('delete')
                     <button class="delete">削除</button>
                 </form>
+
             </div>
 
         </div>
