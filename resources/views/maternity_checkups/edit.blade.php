@@ -10,8 +10,9 @@
 @endsection
 
 @section('form')
-<form action="{{route('maternity_checkups.update')}}" class="" method="post">
+<form action="{{route('maternity_checkups.update',[$maternity_checkup->id])}}" class="" method="post">
 @csrf
+@method('put')
 @endsection
 
 @section('lists')
