@@ -37,12 +37,12 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </form>
     <footer>
     <!-- 完了ボタン -->
         <div class="container_back">
-            <div calass="btn_back">
+            <div class="btn_back">
                 <!-- <button class="back">完了</button>-->
                 @yield('back')
             </div>
