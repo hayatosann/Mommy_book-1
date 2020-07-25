@@ -9,6 +9,11 @@
 検診結果
 @endsection
 
+<!-- 登録ボタンのフォーム -->
+@section('form')
+<form action=""></form>
+@endsection
+
 @section('lists')
 <li>検査年月日:<span><input type="date"></span></li>
 <li>体重: <span><input type="text"></span>㎏</li>
