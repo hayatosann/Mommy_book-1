@@ -54,7 +54,7 @@
    <footer>
         <!-- 戻るボタン -->
         <div class="container_back">
-            <div calas="btn_back">
+            <div class="btn_back">
                 <!-- <button class="back">戻る</button> -->
                 @yield('back')
             </div>
