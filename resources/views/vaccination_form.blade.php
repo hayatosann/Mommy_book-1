@@ -9,6 +9,11 @@
 予防接種詳細
 @endsection
 
+<!-- 登録ボタンのフォーム -->
+@section
+<form action=""></form>
+@endsection
+
 @section('lists')
 <li>ワクチン名: <span><input type="text"></span></li>
 <li>接種年月日: <span><input type="date"></span></li>
