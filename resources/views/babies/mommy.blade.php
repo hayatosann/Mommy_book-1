@@ -42,8 +42,20 @@
       <div class="detail">
         <h2>検診結果</h2>
         <p>最新の結果詳細</p>
+        <ul>
+            <li>検査年月日:{{$maternity_checkup->date}}</li>
+            <li>妊娠週数:{{$maternity_checkup->pregnancy_week}}</li>
+            <li>子宮底調:{{$maternity_checkup->fundal_height}}cm</li>
+            <li>体重:{{$maternity_checkup->weight}}㎏</li>
+            <li>腹囲:{{$maternity_checkup->abdominal_circumference}}cm</li>
+            <li>血圧:{{$maternity_checkup->blood_pressure}}</li>
+            <li>浮腫:{{$maternity_checkup->edema}}</li>
+            <li>尿蛋白:{{$maternity_checkup->urinal_protein}}</li>
+            <li>尿糖:{{$maternity_checkup->urinal_sugar}}</li>
+            <li>備考欄:{{$maternity_checkup->note}}</li>
+          </ul>
         <div class="detail-button">
-          <a href="momcheckups">一覧ページ</a>
+          <a href="{{route('maternity_checkups.index')}}">一覧ページ</a>
         </div>
       </div>
     </div>
@@ -51,8 +63,8 @@
 
   <div class="button-wrapper">
     <div class="buttons">
-      <button><a href="momcheckups_form">検診結果入力</a></button>
-      <button><a href="baby">赤ちゃんページ</a></button>
+      <button><a href="{{route('maternity_checkups.create')}}">検診結果入力</a></button>
+      <button><a href="{{route('babies.index')}}">赤ちゃんページ</a></button>
       <button><a href="#">カレンダー</a></button>
       <button><a href="#">子育て情報一覧</a></button>
     </div>

@@ -56,7 +56,10 @@ header {
 .babies .girl {
   background-color: pink;
 }
-
+/* 追加 */
+.babies .none {
+    background-color: yellow;
+}
 /* top-wrappper css */
 .top-box {
   display: flex;
