@@ -14,10 +14,8 @@ class MommyController extends Controller
     public function index()
     {
         $maternity_checkups = Maternity_checkup::orderBy('id', 'DESC')->take(1)->get();
-        
-        return view('babies.mommy');
-        
-        
+        // dd($maternity_checkups);
+        return view('babies.mommy', ['maternity_checkups'=> $maternity_checkups]);     
         
     }
 
@@ -61,7 +59,8 @@ class MommyController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $baby = Baby::find($id);
+        // return view('mommies.index', ['baby'=>$baby]);
     }
 
     /**
@@ -73,9 +72,19 @@ class MommyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $baby = Baby::find($id);
+        // dd($baby)
+        $baby->status = '生後';
+        $baby->save();
+        return redirect()->route('momies.index');
     }
-
+    public function status(){
+        $baby = Baby::find($id);
+        // dd($baby)
+        $baby->status = '生後';
+        $baby->save();
+        return redirect()->route('momies.index');
+    }
     /**
      * Remove the specified resource from storage.
      *

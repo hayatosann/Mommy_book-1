@@ -10,9 +10,4 @@ class Maternity_checkup extends Model
     public function user(){
         return $this->belongsTo('App\User', 'user_id');
     }
-    
-    // 最新のデータを出力
-    public function latestPost(){
-        return $this->hasOne('App\Post')->orderBy('created_at', 'desc');
-    }
 }

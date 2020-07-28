@@ -25,7 +25,7 @@
       <div class="box-right">
         <h1>妊娠◯ヶ月</h1>
         <h1>おめでとう</h1>
-        <button>生まれたよ</button>
+        <button onclick="{{route('mommies.status')}}">生まれたよ</button>
       </div>
     </div>
   </div>
@@ -41,19 +41,20 @@
       </div>
       <div class="detail">
         <h2>検診結果</h2>
-        <p>最新の結果詳細</p>
-        <ul>
-            <li>検査年月日:{{$maternity_checkup->date}}</li>
-            <li>妊娠週数:{{$maternity_checkup->pregnancy_week}}</li>
-            <li>子宮底調:{{$maternity_checkup->fundal_height}}cm</li>
-            <li>体重:{{$maternity_checkup->weight}}㎏</li>
-            <li>腹囲:{{$maternity_checkup->abdominal_circumference}}cm</li>
-            <li>血圧:{{$maternity_checkup->blood_pressure}}</li>
-            <li>浮腫:{{$maternity_checkup->edema}}</li>
-            <li>尿蛋白:{{$maternity_checkup->urinal_protein}}</li>
-            <li>尿糖:{{$maternity_checkup->urinal_sugar}}</li>
-            <li>備考欄:{{$maternity_checkup->note}}</li>
-          </ul>
+        <p>最新の結果詳細<br>
+        @foreach($maternity_checkups as $maternity_checkup)
+          検査年月日:{{$maternity_checkup->date}}<br>
+          妊娠週数:{{$maternity_checkup->pregnancy_week}}<br>
+          子宮底調:{{$maternity_checkup->fundal_height}}cm<br>
+          体重:{{$maternity_checkup->weight}}㎏<br>
+          腹囲:{{$maternity_checkup->abdominal_circumference}}cm<br>
+          血圧:{{$maternity_checkup->blood_pressure}}<br>
+          浮腫:{{$maternity_checkup->edema}}<br>
+          尿蛋白:{{$maternity_checkup->urinal_protein}}<br>
+          尿糖:{{$maternity_checkup->urinal_sugar}}<br>
+          備考欄:{{$maternity_checkup->note}}<br>
+        @endforeach
+        </p>
         <div class="detail-button">
           <a href="{{route('maternity_checkups.index')}}">一覧ページ</a>
         </div>

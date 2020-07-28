@@ -16,7 +16,25 @@ class BabyController extends Controller
     {
         $babies = Baby::all();
 
-        return view('babies.index',['babies' => $babies]);
+        // 生まれる前後での条件分岐
+        // $birthdate = $babies->birthdate;
+        // // dd($birthdate);
+        // $today = strtotime(date("Y/m/d"))
+        // $birthday = strtotime($birthdate);
+        // if($today > $birthday){
+        //     $age = ($today - $birthday);
+        //     return $age;
+        // }
+        // elseif($today < $birthday){
+        //     $age
+        //     return $age;
+        // }
+
+        // $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
+        // $baby_checkups = Baby_checkups('id', 'DESC')->take(1)->get();
+        // vaccineモデルと赤ちゃん検診のモデルができたらコメントイン
+        // return view('babies.index',['babies' => $babies, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups]);
+         return view('babies.index',['babies' => $babies]);
     }
 
     /**
@@ -55,7 +73,7 @@ class BabyController extends Controller
         // $request->session()->('name', $request->get('nickname', ''));
         // $request->session()->('name', $request->get('gender', ''));
         // $request->session()->('name', $request->get('birthdate'));
-       
+
     }
     // 確認完了・一人目の子どもの保存処理
     public function store(CreateBaby $request)
@@ -107,9 +125,8 @@ class BabyController extends Controller
      */
     public function edit($id)
     {
-        //
+    //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -119,7 +136,8 @@ class BabyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    //
+
     }
 
     /**
