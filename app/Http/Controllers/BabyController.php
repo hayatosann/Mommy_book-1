@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Baby;
+// use App\Baby_checkup;
+use App\Vaccine;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateBaby;
 class BabyController extends Controller
@@ -15,7 +17,7 @@ class BabyController extends Controller
     public function index()
     {
         $babies = Baby::all();
-
+        $vaccines = Vaccine::all();
         $baby = Baby::find(30);
         // 生まれる前後での条件分岐
         $birthdate = $baby->birthdate;
@@ -34,11 +36,11 @@ class BabyController extends Controller
                 $age = $age.'日';
             };
         }
-        // $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
+        $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
         // $baby_checkups = Baby_checkups('id', 'DESC')->take(1)->get();
         // vaccineモデルと赤ちゃん検診のモデルができたらコメントイン
         // return view('babies.index',['babies' => $babies, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups]);
-         return view('babies.index',['babies' => $babies,'age'=>$age ]);
+         return view('babies.index',['babies' => $babies,'age'=>$age, 'vaccines'=>$vaccines,]);
     }
 
     /**

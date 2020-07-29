@@ -87,16 +87,17 @@
         <div class="detail">
           <h2>予防接種</h2>
           <p>最新の結果詳細<br>
-            <!-- ここに予防接種健診のforeachまわす-->
-            ワクチン名:<!-- ワクチン名 --><br>
-            接種年月日:<!-- 接種年月日 --><br>
-            注射部位:<!-- 注射部位 --><br>
-            実施者名:<!-- 実施者名 --><br>
-            反応:<!-- 反応 -->mm<br>
-            判定:<!-- 判定 --><br>
-            病院名:<!-- 病院名 --><br>
-            メーカー/ロット:<!-- メーカー・ロット --><br>
-            備考:<!-- 備考 --><br>
+            @foreach($vaccines as $vaccine)
+                ワクチン名: {{$vaccine->name}}<br>
+                接種年月日: {{$vaccine->shot_date}}<br>
+                注射部位: {{$vaccine->shot_place}}<br>
+                実施者名: {{$vaccine->physician_sign}}<br>
+                反応: {{$vaccine->react}}mm<br>
+                判定: {{$vaccine->result}}<br>
+                病院名: {{$vaccine->hospital_name}}<br>
+                メーカー/ロット: {{$vaccine->manufacture_lot}}<br>
+                備考: {{$vaccine->remarks}}><br>
+            @endforeach
           </p>
           <div class="detail-button">
             <a href="vaccination">一覧ページ</a>
