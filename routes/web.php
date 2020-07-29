@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('login');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 //妊婦健診一覧表示画面
 Route::get('momcheckups', function() {
@@ -95,3 +95,7 @@ Route::resource('albums', 'AlbumController');
 // Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update'); 
 // Route::delete('maternity_checkups/{id}/delete', 'Maternity_checkup@destroy')->name('maternity_checkups.destroy');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
