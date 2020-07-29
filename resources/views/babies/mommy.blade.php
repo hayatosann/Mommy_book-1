@@ -23,16 +23,21 @@
         <img src="img/matanity.jpg" alt="">
       </div>
       <div class="box-right">
-        <h1>妊娠◯ヶ月</h1>
-        <h1>おめでとう</h1>
-        <button onclick="{{route('mommies.status')}}">生まれたよ</button>
-      </div>
+        <h1>{{$month}}</h1>
+        <!-- <h1>おめでとう</h1> -->
+        <form action="{{route('mommies.update',[30])}}" method="post">
+            @csrf
+            @method('put')
+            <input type="hidden" name="status">
+            <button>{{$btn}}</button>
+        </form>
+    </div>
     </div>
   </div>
 
   <div class="main-wrapper">
     <div class="heading">
-      <h1>✳︎ 妊娠◯週目 ✳︎</h1>
+      <h1>✳︎{{$week}}✳︎</h1>
     </div>
     <div class="mommy-details">
       <div class="detail">

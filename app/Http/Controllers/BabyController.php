@@ -16,25 +16,29 @@ class BabyController extends Controller
     {
         $babies = Baby::all();
 
+        $baby = Baby::find(30);
         // 生まれる前後での条件分岐
-        // $birthdate = $babies->birthdate;
-        // // dd($birthdate);
-        // $today = strtotime(date("Y/m/d"))
-        // $birthday = strtotime($birthdate);
-        // if($today > $birthday){
-        //     $age = ($today - $birthday);
-        //     return $age;
-        // }
-        // elseif($today < $birthday){
-        //     $age
-        //     return $age;
-        // }
-
+        $birthdate = $baby->birthdate;
+        // dd($birthdate);
+        $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
+        // dd($today);
+        $birthday = strtotime($birthdate)/ (60 * 60 * 24);
+        if($today > $birthday){
+            $age = ($today - $birthday);
+            // dd($age);
+            if($age > 364){
+                $age = floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
+            }elseif($age > 29){
+                $age = floor($age/30).'ヶ月'.($age%30).'日';
+            }else{
+                $age = $age.'日';
+            };
+        }
         // $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
         // $baby_checkups = Baby_checkups('id', 'DESC')->take(1)->get();
         // vaccineモデルと赤ちゃん検診のモデルができたらコメントイン
         // return view('babies.index',['babies' => $babies, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups]);
-         return view('babies.index',['babies' => $babies]);
+         return view('babies.index',['babies' => $babies,'age'=>$age ]);
     }
 
     /**

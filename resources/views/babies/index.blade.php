@@ -48,7 +48,7 @@
 
   <div class="main-wrapper">
     <div class="heading">
-      <h1>✳︎ ◯歳 ◯ヶ月 ✳︎</h1>
+      <h1>✳︎生後:{{$age}}✳︎</h1>
     </div>
     <div class="baby-details">
       <div class="graph">
@@ -60,7 +60,7 @@
         <div class="detail">
           <h2>検診結果</h2>
           <p>最新の結果詳細<br>
-            <!-- ここに赤ちゃん健診のforeachまわす -->
+            <!-- {{--@foreach--}} -->
             検査年月日:<!-- 検査年月日 -->
             体重:<!-- 体重 -->㎏<br>
             身長:<!-- 身長 -->cm<br>

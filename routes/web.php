@@ -101,6 +101,5 @@ Route::resource('albums', 'AlbumController');
 Route::resource('babies', 'BabyController');
 Route::post('babies/confirm', 'BabyController@confirm')->name('babies.confirm');
 Route::post('babies/sinblings', 'BabyController@sinbling')->name('babies.sinbling');
-// Route::get('momies/status' 'MommyController@status')->name('babies.status');
 Route::resource('mommies', 'MommyController');
-Route::get('mommies/status', 'MommyController@status')->name('mommies.status');
+
