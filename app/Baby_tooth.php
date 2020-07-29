@@ -1,13 +1,12 @@
 <?php
 
 namespace App;
-namespace App\Baby_checkup;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Baby extends Model
+class Baby_tooth extends Model
 {
     public function baby_checkup(){
-        return $this->hasmany('App\Baby_checkup');
+        return $this->hasOne('App\Baby_checkup', 'baby_checkup_id');
     }
 }

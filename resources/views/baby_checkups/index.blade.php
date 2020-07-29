@@ -28,12 +28,12 @@
         <li>栄養方法:{{$baby_checkup->food}}</li>
         <li>目の異常:{{$baby_checkup->eyes_disease}}</li>
         <li>耳の異常:{{$baby_checkup->ears_disease}}</li>
-        <!-- <li>要治療虫歯:要治療虫歯</li> -->
-        <li>歯のよごれ:<!-- 歯のよごれ --></li>
-        <li>歯肉・粘膜:<!-- 歯肉・粘膜 --></li>
-        <li>不正咬合:<!-- 不正咬合 --></li>
-        <li>歯・口腔の疾病異常:<!-- 歯・口腔の疾病異常 --></li>
-        <li>生え変わり:<!-- 生え変わり -->本</li>
+        <li>要治療虫歯:{{$baby_checkup->baby_tooth()->teeth_decay}}</li>
+        <li>歯のよごれ:{{$baby_checkup->clearness}}</li>
+        <li>歯肉・粘膜:{{$baby_checkup->gingival_mucous}}</li>
+        <li>不正咬合:{{$baby_checkup->teeth_allignment}}</li>
+        <li>歯・口腔の疾病異常:{{$baby_checkup->oral_disease}}</li>
+        <li>生え変わり:{{$baby_checkup->replaced_teeth}}本</li>
         <li>健康・要観察:{{$baby_checkup->checkups}}</li>
         <li>指導事項:{{$baby_checkup->guidance}}</li>
         <li>施設名/担当者名:{{$baby_checkup->supervisor_name}}</li>

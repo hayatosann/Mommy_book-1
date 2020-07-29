@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Baby_checkup;
+use App\Baby_tooth;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,10 +18,12 @@ class Baby_checkupController extends Controller
      */
     public function index()
     {
-        $baby_checkups = Baby_checkup::all();
-        // dd($maternity_checkups);
-        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups]);
-        // return view('momcheckups');
+        $baby_checkups = Baby_checkup::find(1)->oral_disease;
+        dd($baby_checkups);
+        $baby_tooths = Baby_tooth::all();
+        
+        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups, 'baby_tooths' => $baby_tooths]);
+        
     }
 
     /**
@@ -42,6 +46,7 @@ class Baby_checkupController extends Controller
     {
         // dd($request);
         $baby_checkup = new Baby_checkup();
+        $baby_tooth = new Baby_tooth();
 
         $baby_checkup->date = $request->date;
         $baby_checkup->weight = $request->weight;
@@ -49,11 +54,22 @@ class Baby_checkupController extends Controller
         $baby_checkup->chest = $request->chest;
         $baby_checkup->head = $request->head;
         $baby_checkup->nutritional_status = $request->nutritional_status;
-        $baby_checkup->food = $request->food;
+        $baby_checkup->food = '母乳';
         $baby_checkup->eyes_disease = $request->eyes_disease;
         $baby_checkup->ears_disease = $request->ears_disease;
+        $baby_tooth->teeth_decay = $request->teeth_decay;
+        $baby_tooth->clearness = $request->clearness;
+        $baby_tooth->gingival_mucous = $request->gingival_mucous;
+        $baby_tooth->teeth_allignment = $request->teeth_allignment;
+        $baby_tooth->oral_disease = $request->oral_disease;
+        $baby_tooth->replaced_teeth = $request->replaced_teeth;
+        $baby_checkup->checkups = $request->checkups;
+        $baby_checkup->guidance = $request->guidance;
+        $baby_checkup->supervisor_name = $request->supervisor_name;
         $baby_checkup->baby_id = 1;
+        $baby_tooth->baby_checkup_id = 1;
         $baby_checkup->save();
+        $baby_tooth->save();
 
         return redirect('baby_checkups');
     }

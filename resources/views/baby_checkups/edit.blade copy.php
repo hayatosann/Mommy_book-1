@@ -10,21 +10,21 @@
 @endsection
 
 @section('form')
-<form action="{{route('baby_checkups.store')}}" class="" method="post">
+<form action="{{route('baby_checkups.update', [$baby_checkup->id])}}" class="" method="post">
 @endsection
 
 @section('lists')
-<li>検査年月日:<span><input type="date" name="date"></span></li>
-<li>体重: <span><input type="text" name="weight"></span>㎏</li>
-<li>身長: <input type="text" name="height"></span>cm</li>
-<li>胸囲: <input type="text" name="chest"></span>cm</li>
-<li>頭囲: <input type="text" name="head"></span>cm</li>
+<li>検査年月日:<span><input type="date" name="date" value="{{ old('date', $baby_checkup->date) }}"></span></li>
+<li>体重: <span><input type="text" name="weight" value="{{ old('weight', $baby_checkup->weight) }}"></span>{{ old('date', $baby_checkup->weight) }}㎏</li>
+<li>身長: <input type="text" name="height" value="{{ old('height', $baby_checkup->height) }}"></span>{{ old('date', $baby_checkup->height) }}cm</li>
+<li>胸囲: <input type="text" name="chest" value="{{ old('chest', $baby_checkup->chest) }}"></span>cm</li>
+<li>頭囲: <input type="text" name="head" value="{{ old('head', $baby_checkup->head) }}"></span>cm</li>
 <li>栄養状態:
     <span>
-        <select name="nutritional_status" id="">
-            <option value="null"></option>
-            <option value="good">良</option>
-            <option value="caution">要指導</option>
+        <select name="nutritional_status" id="nutritional_status">
+            <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'none' ? 'selected' : '' }}  value="null"></option>
+            <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'good' ? 'selected' : '' }} value="good">良</option>
+            <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'cartion' ? 'selected' : '' }}value="caution">要指導</option>
         </select>
     </span>
 </li>
@@ -47,7 +47,7 @@
 <li>目の異常:
     <span>
         <select name="eyes_disease" id="">
-            <option value="null"></option>
+            <option {{ old('eyes_disaese', $baby_checkup->nutritional_status) == 'none' ? 'selected' : '' }} value="null"></option>
             <option value="no">なし</option>
             <option value="yes">あり</option>
             <option value="doubt">疑</option>
