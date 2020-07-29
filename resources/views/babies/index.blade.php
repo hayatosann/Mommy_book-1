@@ -33,7 +33,7 @@
         @endforeach
       </div>
       <div class="create_baby">
-        <a href="kidform">新規登録</a>
+        <a href="{{route('babies.create')}}">新規登録</a>
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@
         <div class="detail">
           <h2>検診結果</h2>
           <p>最新の結果詳細<br>
-            <!-- {{--@foreach--}} -->
+            <!-- {{--@foreach($baby_checkups->baby_checkup)--}} -->
             検査年月日:<!-- 検査年月日 -->
             体重:<!-- 体重 -->㎏<br>
             身長:<!-- 身長 -->cm<br>
