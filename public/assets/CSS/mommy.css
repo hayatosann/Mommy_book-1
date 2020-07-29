@@ -77,9 +77,12 @@ header {
   font-size: 15px;
 }
 .detail p {
+  display:flex;
+  flex-direction: column;
+  text-align:center;
   border: 1px solid black;
   width: 80%;
-  height: 20vh;
+  /* height: 20vh; */
   margin-top: 15px;
   margin-bottom: 10px;
 }

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 //妊婦健診一覧表示画面
@@ -57,11 +57,8 @@ Route::get('vaccination', function(){
 //     return view('vaccination_form');
 // });
 
-// Route::get('/mommy', function () {
-//     return view('mommy');
-// });
 // Route::get('/baby', function () {
-//     return view('baby');
+//     return view('babies.index');
 // });
 
 // Route::get('/mamaform', function () {
@@ -71,10 +68,10 @@ Route::get('vaccination', function(){
 //     return view('mamaconfirm');
 // });
 // Route::get('/kidform', function () {
-//     return view('kidform');
+//     return view('babies.create');
 // });
 // Route::get('/kidconfirm', function () {
-//     return view('kidconfirm');
+//     return view('babies.kidconfirm');
 
 // });
 
@@ -89,13 +86,25 @@ Route::resource('maternity_checkups', 'Maternity_checkupController');
 
 
 
+
 Route::resource('albums', 'AlbumController');
 
-// Route::get('maternity_checkups/{id}/edit/{hoge}', 'Maternity_checkupController@edit')->name('maternity_checkups.edit'); 
-// Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update'); 
+// Route::get('maternity_checkups/{id}/edit/{hoge}', 'Maternity_checkupController@edit')->name('maternity_checkups.edit');
+// Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update');
+
 // Route::delete('maternity_checkups/{id}/delete', 'Maternity_checkup@destroy')->name('maternity_checkups.destroy');
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('maternity_checkups', 'Maternity_checkupController@create')->name('maternity_checkups');
+// Route::post('maternity_checkups', 'Maternity_checkupController@store')->name('maternity_checkups');
+
+// 赤ちゃんページ
+Route::resource('babies', 'BabyController');
+Route::post('babies/confirm', 'BabyController@confirm')->name('babies.confirm');
+Route::post('babies/sinblings', 'BabyController@sinbling')->name('babies.sinbling');
+Route::resource('mommies', 'MommyController');
