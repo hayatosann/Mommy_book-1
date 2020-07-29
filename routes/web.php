@@ -110,4 +110,4 @@ Route::post('babies/sinblings', 'BabyController@sinbling')->name('babies.sinblin
 Route::resource('mommies', 'MommyController');
 
 Route::post('users/confirm', 'UserController@confirm')->name('users.confirm');
-// Route::post('users/register', 'RegisterController@confirm')->name('users.register');
+// Route::post('users/register', 'Auth\RegisterController@confirm')->name('users.register');

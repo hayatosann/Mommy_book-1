@@ -18,7 +18,7 @@ class BabyController extends Controller
     {
         $babies = Baby::all();
         $vaccines = Vaccine::all();
-        $baby = Baby::find(30);
+        $baby = Baby::find(1);
         // 生まれる前後での条件分岐
         $birthdate = $baby->birthdate;
         // dd($birthdate);

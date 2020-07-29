@@ -17,22 +17,24 @@
         <div class="col-md-12">
           <h2 class="title">親御様のプロフィール登録確認画面</h2>
           <h4 class="message">この内容でご登録しますか？</h4>
-          <li>{{ $nickname }}</li>
-          <li>{{ $gender }}</li>
-          <li>{{ $zipcode }}</li>
-          <li>{{ $birthdate }}</li>
-          <li>{{ $email }}</li>
+          <li>{{ $input['name'] }}</li>
+          <li>{{ $input['gender'] }}</li>
+          <li>{{ $input['zipcode'] }}</li>
+          <li>{{ $input['birthdate'] }}</li>
+          <li>{{ $input['email'] }}</li>
           <div class="login">
-            <form method="post" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}">
               @csrf
-                <input type="hidden" name="name" value="{{$nickname}}">
-                <input type="hidden" name="gender" value="{{$gender}}">
-                <input type="hidden" name="zipcode" value="{{$zipcode}}">
-                <input type="hidden" name="birthdate" value="{{$birthdate}}">
-                <input type="hidden" name="email" value="{{$email}}">
-                <button class="btn-flat-border">登録</button>
+                <input type="hidden" name="name" value="{{$input['name']}}">
+                <input type="hidden" name="gender" value="{{$input['gender']}}">
+                <input type="hidden" name="zipcode" value="{{$input['zipcode']}}">
+                <input type="hidden" name="birthdate" value="{{$input['birthdate']}}">
+                <input type="hidden" name="password" value="{{$input['password']}}">
+                <input type="hidden" name="email" value="{{$input['email']}}">
+                <button type="submit" class="btn-flat-border">登録</button>
             </form>
-            {{-- <a href="#" class="btn-flat-border">修正する（前画面へ）</a> --}}
+            <button type="button" onclick=history.back() class="btn-flat-border">戻る</button>
+
           </div>
         </div>
       </div>
