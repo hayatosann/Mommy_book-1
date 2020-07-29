@@ -18,11 +18,13 @@ class Baby_checkupController extends Controller
      */
     public function index()
     {
-        $baby_checkups = Baby_checkup::find(1)->oral_disease;
-        dd($baby_checkups);
-        $baby_tooths = Baby_tooth::all();
+        $baby_checkups = Baby_checkup::all();
+        // dd($baby_checkups);
+        // $baby_checkups = Baby_checkup::find(1)->baby_tooth->teeth_decay;
+        // $baby_tooths = Baby_tooth::find(1)->baby_checkup();
         
-        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups, 'baby_tooths' => $baby_tooths]);
+        
+        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups]);
         
     }
 

@@ -13,5 +13,5 @@ class Baby_checkup extends Model
 
     public function baby_tooth(){
       return $this->hasOne('App\Baby_tooth');
-  }
+    }
 }
