@@ -18,7 +18,7 @@ class MommyController extends Controller
         // $babies = Baby::all();
         $btn = '生まれたよ';
         $maternity_checkups = Maternity_checkup::orderBy('id', 'DESC')->take(1)->get();
-        $baby = Baby::find(30);
+        $baby = Baby::find(1);
         $birthdate = $baby->birthdate;
         // 今日の日付
         $today = Carbon::today();

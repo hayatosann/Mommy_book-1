@@ -25,7 +25,7 @@
       <div class="box-right">
         <h1>{{$month}}</h1>
         <!-- <h1>おめでとう</h1> -->
-        <form action="{{route('mommies.update',[30])}}" method="post">
+        <form action="{{route('mommies.update',[1])}}" method="post">
             @csrf
             @method('put')
             <input type="hidden" name="status">

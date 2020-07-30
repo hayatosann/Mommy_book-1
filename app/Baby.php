@@ -15,4 +15,7 @@ class Baby extends Model
     public function vaccine(){
         return $this->hasMany('App\Vaccine');
     }
+    public function baby_checkup(){
+        return $this->hasmany('App\Baby_checkup');
+    }
 }

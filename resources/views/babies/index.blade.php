@@ -56,32 +56,32 @@
         <img src="img/graph.png" alt="">
       </div>
       <div class="details">
-        <!-- 配列開始 -->
         <div class="detail">
           <h2>検診結果</h2>
           <p>最新の結果詳細<br>
-            <!-- {{--@foreach($baby_checkups->baby_checkup)--}} -->
-            検査年月日:<!-- 検査年月日 -->
-            体重:<!-- 体重 -->㎏<br>
-            身長:<!-- 身長 -->cm<br>
-            胸囲:<!-- 胸囲 -->cm<br>
-            頭囲:<!-- 頭囲 -->cm<br>
-            栄養状態:<!-- 栄養状態 --><br>
-            栄養方法:<!-- 栄養方法 --><br>
-            目の異常:<!-- 目の異常 --><br>
-            耳の異常:<!-- 耳の異常 --><br>
-            要治療虫歯:<!-- 要治療虫歯 --><br>
-            歯のよごれ:<!-- 歯のよごれ --><br>
-            歯肉・粘膜:<!-- 歯肉・粘膜 --><br>
-            不正咬合:<!-- 不正咬合 --><br>
-            歯・口腔の疾病異常:<!-- 歯・口腔の疾病異常 --><br>
-            生え変わり:<!-- 生え変わり -->本<br>
-            健康・要観察:<!-- 健康・要観察 --><br>
-            指導事項:<!-- 指導事項 --><br>
-            施設名/担当者名:<!-- 施設名/担当者名 --><br>
+          @foreach($baby_checkups as $baby_checkup)
+            検査年月日:{{$baby_checkup->date}}<br>
+            体重:{{$baby_checkup->weight}}㎏<<br>
+            身長:{{$baby_checkup->height}}cm<br>
+            胸囲:{{$baby_checkup->chest}}cm<br>
+            頭囲:{{$baby_checkup->head}}cm<br>
+            栄養状態:{{$baby_checkup->nutritional_status}}<br>
+            栄養方法:{{$baby_checkup->food}}<br>
+            目の異常:{{$baby_checkup->eyes_disease}}<br>
+            耳の異常:{{$baby_checkup->ears_disease}}<br>
+            要治療虫歯:{{$baby_checkup->baby_tooth->teeth_decay}}<br>
+            歯のよごれ:{{$baby_checkup->baby_tooth->clearness}}<br>
+            歯肉・粘膜:{{$baby_checkup->baby_tooth->gingival_mucous}}<br>
+            不正咬合:{{$baby_checkup->baby_tooth->teeth_allignment}}<br>
+            歯・口腔の疾病異常:{{$baby_checkup->baby_tooth->oral_disease}}<br>
+            生え変わり:{{$baby_checkup->baby_tooth->replaced_teeth}}本<br>
+            健康・要観察:{{$baby_checkup->checkups}}<br>
+            指導事項:{{$baby_checkup->guidance}}<br>
+            施設名/担当者名:{{$baby_checkup->supervisor_name}}<br>
+         @endforeach
           </p>
           <div class="detail-button">
-            <a href="babycheckups">一覧ページ</a>
+            <a href="{{route('baby_checkups.index')}}">一覧ページ</a>
           </div>
         </div>
         <div class="detail">
@@ -103,7 +103,6 @@
             <a href="vaccination">一覧ページ</a>
           </div>
         </div>
-        <!-- 配列閉じる-->
       </div>
     </div>
   </div>

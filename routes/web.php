@@ -103,3 +103,12 @@ Route::post('babies/confirm', 'BabyController@confirm')->name('babies.confirm');
 Route::post('babies/sinblings', 'BabyController@sinbling')->name('babies.sinbling');
 Route::resource('mommies', 'MommyController');
 
+
+Route::resource('albums', 'AlbumController');
+
+
+// Route::get('maternity_checkups/{id}/edit/{hoge}', 'Maternity_checkupController@edit')->name('maternity_checkups.edit');
+// Route::put('maternity_checkups/update', 'Maternity_checkup@update')->name('maternity_checkups.update');
+// Route::delete('maternity_checkups/{id}/delete', 'Maternity_checkup@destroy')->name('maternity_checkups.destroy');
+
+Route::resource('baby_checkups', 'Baby_checkupController');
