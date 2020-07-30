@@ -7,7 +7,7 @@ use App\Baby_checkup;
 use App\Vaccine;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateBaby;
-use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 class BabyController extends Controller
 {
     /**
@@ -19,7 +19,11 @@ class BabyController extends Controller
     {
         $babies = Baby::all();
         $vaccines = Vaccine::all();
-        $baby = Baby::find(1);
+          // ログインしているユーザーの赤ちゃんのデータを取ってくる
+        $baby = Auth::user()->baby;
+        // baby_idを取得
+        $baby = Baby::find($baby[0]['id']);
+        // dd($baby);
         // 生まれる前後での条件分岐
         $birthdate = $baby->birthdate;
         // dd($birthdate);
@@ -40,7 +44,7 @@ class BabyController extends Controller
         $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
         $baby_checkups = Baby_checkup::orderBy('id', 'DESC')->take(1)->get();
 
-         return view('babies.index',['babies' => $babies,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups]);
+         return view('babies.index',['babies' => $babies,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups, 'baby'=>$baby]);
     }
 
     /**

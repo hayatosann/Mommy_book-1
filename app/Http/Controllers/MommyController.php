@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Maternity_checkup;
 use App\Baby;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class MommyController extends Controller
@@ -16,9 +17,14 @@ class MommyController extends Controller
     public function index()
     {
         // $babies = Baby::all();
+        // dd($babies);
         $btn = '生まれたよ';
         $maternity_checkups = Maternity_checkup::orderBy('id', 'DESC')->take(1)->get();
-        $baby = Baby::find(1);
+        // ログインしているユーザーの赤ちゃんのデータを取ってくる
+        $baby = Auth::user()->baby;
+        // baby_idを取得
+        $baby = Baby::find($baby[0]['id']);
+        // dd($baby);
         $birthdate = $baby->birthdate;
         // 今日の日付
         $today = Carbon::today();
@@ -55,7 +61,7 @@ class MommyController extends Controller
         };
 
         // dd($maternity_checkups);
-        return view('babies.mommy', ['maternity_checkups'=> $maternity_checkups, 'month' => $month, 'week' => $week, 'btn' => $btn]);
+        return view('babies.mommy', ['maternity_checkups'=> $maternity_checkups, 'month' => $month, 'week' => $week, 'btn' => $btn, 'baby'=>$baby]);
 
     }
 
@@ -120,7 +126,7 @@ class MommyController extends Controller
         }
         $baby->save();
 
-        return redirect()->route('mommies.index');
+        return redirect()->route('mommies.index', compact('baby'));
     }
     /**
      * Remove the specified resource from storage.
