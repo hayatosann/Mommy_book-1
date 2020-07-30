@@ -14,18 +14,19 @@
 @endsection
 
 @section('lists')
+@foreach($vaccines as $vaccine)
 <div class="wrapper_display">
     <div class="wrapper_lists">
         <ul class="lists_title">
-            <li>ワクチン名:<!-- ワクチン名 --></li>
-            <li>接種年月日:<!-- 接種年月日 --></li>
-            <li>注射部位:<!-- 注射部位 --></li>
-            <li>実施者名:<!-- 実施者名 --></li>
-            <li>反応:<!-- 反応 -->mm</li>
-            <li>判定:<!-- 判定 --></li>
-            <li>病院名:<!-- 病院名 --></li>
-            <li>メーカー/ロット:<!-- メーカー・ロット --></li>
-            <li>備考:<!-- 備考 --></li>
+            <li>ワクチン名:{{$vaccine->name}}</li>
+            <li>接種年月日:{{$vaccine->shot_date}}</li>
+            <li>注射部位:{{$vaccine->shot_place}}</li>
+            <li>実施者名:{{$vaccine->physician_sign}}</li>
+            <li>反応:{{$vaccine->react}}mm</li>
+            <li>判定:{{$vaccine->result}}</li>
+            <li>病院名:{{$vaccine->hospital_name}}</li>
+            <li>メーカー/ロット:{{$vaccine->manufacture_lot}}</li>
+            <li>備考:{{$vaccine->remarks}}</li>
         </ul>
         <div class="btn_edit">
             <!-- 編集ボタン -->
@@ -37,6 +38,7 @@
         </div>
     </div>
 </div>
+@endforeach
 @endsection
 
 
