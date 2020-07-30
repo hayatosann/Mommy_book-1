@@ -32,7 +32,9 @@
             <!-- 編集ボタン -->
             <a href="" class="edit">編集</a>
             <!-- 削除ボタン -->
-            <form action="" method="">
+            <form action="{{ route('vaccines.destroy', $vaccine->id)}}" method="post">
+            @csrf
+            @method('delete')
                     <button class="delete">削除</button>
             </form>
         </div>

@@ -100,6 +100,10 @@ class VaccineController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vaccine = Vaccine::find($id);
+        // dd($vaccine);
+        $vaccine->delete();
+
+        return redirect('vaccines');
     }
 }
