@@ -18,12 +18,15 @@ class BabyController extends Controller
     public function index()
     {
         $babies = Baby::all();
-        $vaccines = Vaccine::all();
           // ログインしているユーザーの赤ちゃんのデータを取ってくる
-        $baby = Auth::user()->baby;
-        // baby_idを取得
-        $baby = Baby::find($baby[0]['id']);
-        // dd($baby);
+          $kid = Auth::user()->baby;
+        //   dd($kid[0]['id']);
+          // baby_idを取得（赤ちゃんを一人ずつ設定する前提）
+          $baby = Baby::find($kid[0]['id']);
+        //   dd($baby);
+        // ログインしている赤ちゃんの親のid
+        //   $user = $baby['user_id'];
+
         // 生まれる前後での条件分岐
         $birthdate = $baby->birthdate;
         // dd($birthdate);
@@ -41,8 +44,11 @@ class BabyController extends Controller
                 $age = $age.'日';
             };
         }
-        $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
-        $baby_checkups = Baby_checkup::orderBy('id', 'DESC')->take(1)->get();
+        // ログインしている子どものbaby_id
+        $kid = $kid[0]['id'];
+        $vaccines = Baby::find($kid)->vaccine->sortByDesc("id")->take(1);
+        $baby_checkups = Baby::find($kid)->baby_checkup->sortByDesc("id")->take(1);
+        // dd($baby_checkups);
 
          return view('babies.index',['babies' => $babies,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups, 'baby'=>$baby]);
     }

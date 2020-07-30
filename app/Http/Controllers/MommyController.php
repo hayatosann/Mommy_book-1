@@ -19,13 +19,20 @@ class MommyController extends Controller
         // $babies = Baby::all();
         // dd($babies);
         $btn = '生まれたよ';
-        $maternity_checkups = Maternity_checkup::orderBy('id', 'DESC')->take(1)->get();
+
+        // ログインしているユーザーの妊婦健診のデータを取ってくる
+        $maternity_checkups = Auth::user()->maternity_checkup;
+        // 上で取っきたデータを降順にして、最新の１件を表示
+        $maternity_checkups = $maternity_checkups->sortByDesc("id")->take(1);
+
         // ログインしているユーザーの赤ちゃんのデータを取ってくる
         $baby = Auth::user()->baby;
-        // baby_idを取得
+        // dd($baby);
+        // baby_idを取得（赤ちゃんを一人ずつ設定する前提）
         $baby = Baby::find($baby[0]['id']);
         // dd($baby);
         $birthdate = $baby->birthdate;
+        // dd($birthdate);
         // 今日の日付
         $today = Carbon::today();
         // 予定日
