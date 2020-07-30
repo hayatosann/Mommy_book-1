@@ -14,14 +14,14 @@ class CreateBabyTeethTable extends Migration
     public function up()
     {
         // baby_teethテーブルの情報
-        Schema::create('baby_teeth', function (Blueprint $table) {
+        Schema::create('baby_tooths', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('baby_checkup_id');
             $table->string('teeth_decay', 50);
             $table->string('clearness', 50);
-            $table->string('gingival_ mucous', 50);
+            $table->string('gingival_mucous', 50);
             $table->string('teeth_allignment', 50);
-            $table->string('oral-disease', 50)->nullable();
+            $table->string('oral_disease', 50)->nullable();
             $table->integer('replaced_teeth')->nullable();
             $table->timestamps();
             // 外部キー
