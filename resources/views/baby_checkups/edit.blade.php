@@ -10,9 +10,9 @@
 @endsection
 
 @section('form')
-<form action="{{route('baby_checkups.update', [$baby_checkup->id])}}" class="" method="post">
+<form action="{{route('baby_checkups.update',$baby_checkup->id)}}" method="POST">
 @csrf
-@method('put')
+@method('PATCH')
 @endsection
 
 @section('lists')
@@ -26,7 +26,7 @@
         <select name="nutritional_status" id="nutritional_status">
             <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'null' ? 'selected' : '' }}  value="null"></option>
             <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'good' ? 'selected' : '' }} value="good">良</option>
-            <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'caution' ? 'selected' : '' }}value="caution">要指導</option>
+            <option {{ old('nutritional_status', $baby_checkup->nutritional_status) == 'caution' ? 'selected' : '' }} value="caution">要指導</option>
         </select>
     </span>
 </li>
@@ -49,10 +49,10 @@
 <li>目の異常:
     <span>
         <select name="eyes_disease" id="">
-            <option {{ old('eyes_disaese', $baby_checkup->eyes_disaese) == 'null' ? 'selected' : '' }} value="null"></option>
-            <option {{ old('eyes_disaese', $baby_checkup->eyes_disaese) == 'no' ? 'selected' : '' }} value="no">なし</option>
-            <option {{ old('eyes_disaese', $baby_checkup->eyes_disaese) == 'yes' ? 'selected' : '' }} value="yes">あり</option>
-            <option {{ old('eyes_disaese', $baby_checkup->eyes_disaese) == 'doubt' ? 'selected' : '' }} value="doubt">疑</option>
+            <option {{ old('eyes_disease', $baby_checkup->eyes_disease) == 'null' ? 'selected' : '' }} value="null"></option>
+            <option {{ old('eyes_disease', $baby_checkup->eyes_disease) == 'no' ? 'selected' : '' }} value="no">なし</option>
+            <option {{ old('eyes_disease', $baby_checkup->eyes_disease) == 'yes' ? 'selected' : '' }} value="yes">あり</option>
+            <option {{ old('eyes_disease', $baby_checkup->eyes_disease) == 'doubt' ? 'selected' : '' }} value="doubt">疑</option>
         </select>
     </span>
 </li>
@@ -61,56 +61,56 @@
         <select name="ears_disease" id="">
             <option {{ old('ears_disease', $baby_checkup->ears_disease) == 'null' ? 'selected' : '' }} value="null"></option>
             <option {{ old('ears_disease', $baby_checkup->ears_disease) == 'no' ? 'selected' : '' }} value="no">なし</option>
-            <option {{ old('ears_disease', $baby_checkup->ears_disease) == 'yes' ? 'selected' : '' }}value="yes">あり</option>
-            <option {{ old('ears_disease', $baby_checkup->ears_disease) == 'doubt' ? 'selected' : '' }}value="doubt">疑</option>
+            <option {{ old('ears_disease', $baby_checkup->ears_disease) == 'yes' ? 'selected' : '' }} value="yes">あり</option>
+            <option {{ old('ears_disease', $baby_checkup->ears_disease) == 'doubt' ? 'selected' : '' }} value="doubt">疑</option>
         </select>
     </span>
 </li>
 <li>要治療虫歯:
     <span>
         <select name="teeth_decay" id="">
-            <option {{ old('teeth_decay', $baby_checkup->teeth_decay) == 'null' ? 'selected' : '' }} value="null"></option>
-            <option {{ old('teeth_decay', $baby_checkup->teeth_decay) == 'no' ? 'selected' : '' }}value="no">なし</option>
-            <option {{ old('teeth_decay', $baby_checkup->teeth_decay) == 'yes' ? 'selected' : '' }}value="yes">あり</option>
+            <option {{ old('teeth_decay', $baby_checkup->baby_tooth->teeth_decay) == 'null' ? 'selected' : '' }} value="null"></option>
+            <option {{ old('teeth_decay', $baby_checkup->baby_tooth->teeth_decay) == 'no' ? 'selected' : '' }} value="no">なし</option>
+            <option {{ old('teeth_decay', $baby_checkup->baby_tooth->teeth_decay) == 'yes' ? 'selected' : '' }} value="yes">あり</option>
         </select>
     </span>
 </li>
 <li>歯のよごれ:
     <span>
         <select name="clearness" id="">
-            <option {{ old('clearness', $baby_checkup->clearness) == 'null' ? 'selected' : '' }}value="null"></option>
-            <option {{ old('clearness', $baby_checkup->clearness) == 'clear' ? 'selected' : '' }}value="clear">きれい</option>
-            <option {{ old('clearness', $baby_checkup->clearness) == 'usual' ? 'selected' : '' }}value="usual">普通</option>
-            <option {{ old('clearness', $baby_checkup->clearness) == 'dirty' ? 'selected' : '' }}value="dirty">汚い</option>
+            <option {{ old('clearness', $baby_checkup->baby_tooth->clearness) == 'null' ? 'selected' : '' }} value="null"></option>
+            <option {{ old('clearness', $baby_checkup->baby_tooth->clearness) == 'clear' ? 'selected' : '' }} value="clear">きれい</option>
+            <option {{ old('clearness', $baby_checkup->baby_tooth->clearness) == 'usual' ? 'selected' : '' }} value="usual">普通</option>
+            <option {{ old('clearness', $baby_checkup->baby_tooth->clearness) == 'dirty' ? 'selected' : '' }} value="dirty">汚い</option>
         </select>
     </span>
 </li>
 <li>歯肉・粘膜:
     <span>
         <select name="gingival_mucous" id="">
-            <option {{ old('gingival_mucous', $baby_checkup->gingival_mucous) == 'null' ? 'selected' : '' }}value="null"></option>
-            <option {{ old('gingival_mucous', $baby_checkup->gingival_mucous) == 'no' ? 'selected' : '' }}value="no">なし</option>
-            <option {{ old('gingival_mucous', $baby_checkup->gingival_mucous) == 'yes' ? 'selected' : '' }}value="yes">あり</option>
+            <option {{ old('gingival_mucous', $baby_checkup->baby_tooth->gingival_mucous) == 'null' ? 'selected' : '' }} value="null"></option>
+            <option {{ old('gingival_mucous', $baby_checkup->baby_tooth->gingival_mucous) == 'no' ? 'selected' : '' }} value="no">なし</option>
+            <option {{ old('gingival_mucous', $baby_checkup->baby_tooth->gingival_mucous) == 'yes' ? 'selected' : '' }} value="yes">あり</option>
         </select>
     </span>
 </li>
 <li>不正咬合:
     <span>
         <select name="teeth_allignment" id="">
-            <option {{ old('teeth_allignment', $baby_checkup->teeth_allignment) == 'null' ? 'selected' : '' }}value="null"></option>
-            <option {{ old('teeth_allignment', $baby_checkup->teeth_allignment) == 'no' ? 'selected' : '' }}value="no">なし</option>
-            <option {{ old('teeth_allignment', $baby_checkup->teeth_allignment) == 'caution' ? 'selected' : '' }}value="caution">要注意</option>
+            <option {{ old('teeth_allignment', $baby_checkup->baby_tooth->teeth_allignment) == 'null' ? 'selected' : '' }} value="null"></option>
+            <option {{ old('teeth_allignment', $baby_checkup->baby_tooth->teeth_allignment) == 'no' ? 'selected' : '' }} value="no">なし</option>
+            <option {{ old('teeth_allignment', $baby_checkup->baby_tooth->teeth_allignment) == 'caution' ? 'selected' : '' }} value="caution">要注意</option>
         </select>
     </span>
 </li>
-<li>歯・口腔の疾病異常: <span><input type="text" name="oral_disease" value="{{ old('oral_disease', $baby_checkup->oral_disease) }}"></span></li>
-<li>生え変わり:  <span><input type="number" name="replaced_teeth" value="{{ old('replaced_teeth', $baby_checkup->replaced_teeth) }}"></span> 本</li>
+<li>歯・口腔の疾病異常: <span><input type="text" name="oral_disease" value="{{ old('oral_disease', $baby_checkup->baby_tooth->oral_disease) }}"></span></li>
+<li>生え変わり:  <span><input type="number" name="replaced_teeth" value="{{ old('replaced_teeth', $baby_checkup->baby_tooth->replaced_teeth) }}"></span> 本</li>
 <li>健康・要観察:
     <span>
         <select name="checkups" id="">
-            <option {{ old('checkups', $baby_checkup->checkups) == 'null' ? 'selected' : '' }}value="null"></option>
-            <option {{ old('checkups', $baby_checkup->checkups) == 'healthy' ? 'selected' : '' }}value="healthy">健康</option>
-            <option {{ old('checkups', $baby_checkup->checkups) == 'unhealthy' ? 'selected' : '' }}value="unhealthy">要観察</option>
+            <option {{ old('checkups', $baby_checkup->checkups) == 'null' ? 'selected' : '' }} value="null"></option>
+            <option {{ old('checkups', $baby_checkup->checkups) == 'healthy' ? 'selected' : '' }} value="healthy">健康</option>
+            <option {{ old('checkups', $baby_checkup->checkups) == 'unhealthy' ? 'selected' : '' }} value="unhealthy">要観察</option>
         </select>
     </span>
 </li>
