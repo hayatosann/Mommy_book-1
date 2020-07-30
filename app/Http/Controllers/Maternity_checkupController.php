@@ -16,7 +16,7 @@ class Maternity_checkupController extends Controller
     public function index()
     {
         $maternity_checkups = Maternity_checkup::all();
-        
+
         return view('maternity_checkups.index', ['maternity_checkups'=> $maternity_checkups]);
         // return view('momcheckups');
     }

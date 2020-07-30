@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-namespace App\Maternity_checkup;
+use App\Maternity_checkup;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nickname', 'email', 'password', 'zipcode', 'birthdate', 'gender',
     ];
 
     /**

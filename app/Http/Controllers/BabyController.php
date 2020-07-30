@@ -7,6 +7,7 @@ use App\Baby_checkup;
 use App\Vaccine;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateBaby;
+use App\Http\Controllers\Auth;
 class BabyController extends Controller
 {
     /**
@@ -38,8 +39,7 @@ class BabyController extends Controller
         }
         $vaccines = Vaccine::orderBy('id', 'DESC')->take(1)->get();
         $baby_checkups = Baby_checkup::orderBy('id', 'DESC')->take(1)->get();
-        // vaccineモデルと赤ちゃん検診のモデルができたらコメントイン
-        // return view('babies.index',['babies' => $babies, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups]);
+
          return view('babies.index',['babies' => $babies,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups]);
     }
 
@@ -91,7 +91,7 @@ class BabyController extends Controller
         $baby->gender = $request->gender;
         $baby->birthdate = $request->birthdate;
         $baby->status = '出産前';
-        $baby->user_id = 1;
+        $baby->user_id = Auth::user()->id;
         $baby->save();
 
         return redirect()->route('mommies.index');
@@ -107,7 +107,7 @@ class BabyController extends Controller
           $baby->gender = $request->gender;
           $baby->birthdate = $request->birthdate;
           $baby->status = '出産前';
-          $baby->user_id = 1;
+          $baby->user_id = Auth::user()->id;
           $baby->save();
 
           return redirect()->route('babies.create');
