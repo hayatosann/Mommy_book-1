@@ -77,7 +77,10 @@ class VaccineController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        $vaccine = Vaccine::find($id);
+
+        return view('vaccines.edit', ['vaccine' => $vaccine]);
     }
 
     /**
@@ -89,7 +92,23 @@ class VaccineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vaccine = Vaccine::find($id);
+
+        $vaccine->name = $request->name;
+        $vaccine->shot_date = $request->shot_date;
+        $vaccine->shot_place = 'abc';
+        $vaccine->physician_sign = $request->physician_sign;
+        $vaccine->react = $request->react;
+        $vaccine->result = $request->result;
+        $vaccine->hospital_name = $request->hospital_name;
+        $vaccine->manufacture_lot = $request->manufacture_lot;
+        $vaccine->remarks = $request->remarks;
+        $vaccine->baby_id = 1;
+        $vaccine->save();
+        // dd($vaccine);
+
+        return redirect('vaccines');
+
     }
 
     /**

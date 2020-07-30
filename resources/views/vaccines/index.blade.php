@@ -30,7 +30,7 @@
         </ul>
         <div class="btn_edit">
             <!-- 編集ボタン -->
-            <a href="" class="edit">編集</a>
+            <a href="{{ route('vaccines.edit', $vaccine->id)}}" class="edit">編集</a>
             <!-- 削除ボタン -->
             <form action="{{ route('vaccines.destroy', $vaccine->id)}}" method="post">
             @csrf
