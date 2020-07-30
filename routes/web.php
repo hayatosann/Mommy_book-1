@@ -120,3 +120,5 @@ Route::resource('albums', 'AlbumController');
 Route::resource('baby_checkups', 'Baby_checkupController');
 Route::post('users/confirm', 'UserController@confirm')->name('users.confirm');
 // Route::post('users/register', 'RegisterController@confirm')->name('users.register');
+Route::post('users/confirm', 'UserController@confirm')->name('users.confirm');
+// Route::post('users/register', 'Auth\RegisterController@confirm')->name('users.register');

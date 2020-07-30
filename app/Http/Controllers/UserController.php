@@ -9,11 +9,14 @@ class UserController extends Controller
     //
     public function confirm(Request $request){
         // dd($request);
-        $nickname = $request->name;
-        $gender = $request->gender;
-        $zipcode = $request->zipcode;
-        $email = $request->email;
-        $birthdate = $request->birthdate;
-        return view('users.confirm', compact('nickname', 'gender', 'zipcode', 'email', 'birthdate'));
+        $input = $request->all();
+        // dd($input);
+        // $nickname = $request->name;
+        // $gender = $request->gender;
+        // $zipcode = $request->zipcode;
+        // $email = $request->email;
+        // $birthdate = $request->birthdate;
+        // $birthdate = $request->birthdate;
+        return view('users.confirm', compact('input'));
     }
 }
