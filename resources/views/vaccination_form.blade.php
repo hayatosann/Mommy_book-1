@@ -10,7 +10,7 @@
 @endsection
 
 <!-- 登録ボタンのフォーム -->
-@section
+@section('form')
 <form action=""></form>
 @endsection
 
