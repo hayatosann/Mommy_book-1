@@ -16,7 +16,7 @@
 
 @section('lists')
 @foreach($baby_checkups as $baby_checkup)
-@foreach($baby_tooths as $baby_tooth)
+
 <div class="wrapper_display">
     <div class="wrapper_lists">
         <ul class="lists_title">
@@ -29,12 +29,12 @@
         <li>栄養方法:{{$baby_checkup->food}}</li>
         <li>目の異常:{{$baby_checkup->eyes_disease}}</li>
         <li>耳の異常:{{$baby_checkup->ears_disease}}</li>
-        <li>要治療虫歯:{{$baby_tooth->teeth_decay}}</li>
-        <li>歯のよごれ:{{$baby_tooth->clearness}}</li>
-        <li>歯肉・粘膜:{{$baby_tooth->gingival_mucous}}</li>
-        <li>不正咬合:{{$baby_tooth->teeth_allignment}}</li>
-        <li>歯・口腔の疾病異常:{{$baby_tooth->oral_disease}}</li>
-        <li>生え変わり:{{$baby_tooth->replaced_teeth}}本</li>
+        <li>要治療虫歯:{{$baby_checkup->baby_tooth->teeth_decay}}</li>
+        <li>歯のよごれ:{{$baby_checkup->baby_tooth->clearness}}</li>
+        <li>歯肉・粘膜:{{$baby_checkup->baby_tooth->gingival_mucous}}</li>
+        <li>不正咬合:{{$baby_checkup->baby_tooth->teeth_allignment}}</li>
+        <li>歯・口腔の疾病異常:{{$baby_checkup->baby_tooth->oral_disease}}</li>
+        <li>生え変わり:{{$baby_checkup->baby_tooth->replaced_teeth}}本</li>
         <li>健康・要観察:{{$baby_checkup->checkups}}</li>
         <li>指導事項:{{$baby_checkup->guidance}}</li>
         <li>施設名/担当者名:{{$baby_checkup->supervisor_name}}</li>
@@ -52,7 +52,6 @@
         </div>
     </div>
 </div>
-@endforeach
 @endforeach
 @endsection
 

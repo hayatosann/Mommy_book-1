@@ -19,13 +19,14 @@ class Baby_checkupController extends Controller
     public function index()
     {
         $baby_checkups = Baby_checkup::all();
-        $baby_tooths = Baby_tooth::all();
+        // $baby_tooths = Baby_tooth::all();
         // dd($baby_tooths);
-        // $baby_checkups = Baby_checkup::find(1)->baby_tooth->teeth_decay;
+        // $baby_checkup = Baby_checkup::find(1)->baby_tooth;
+        // dd($baby_checkups);
         // $baby_tooths = Baby_tooth::find(1)->baby_checkup();
         
         
-        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups, 'baby_tooths' => $baby_tooths]);
+        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups]);
         
     }
 
@@ -70,9 +71,13 @@ class Baby_checkupController extends Controller
         $baby_checkup->guidance = $request->guidance;
         $baby_checkup->supervisor_name = $request->supervisor_name;
         $baby_checkup->baby_id = 1;
-        $baby_tooth->baby_checkup_id = 1;
+        $baby_tooth->baby_checkup_id = 2;
         $baby_checkup->save();
+        $date = Baby_checkup::orderBy('id', 'desc')->take(1)->get();
+        $baby_tooth->baby_checkup_id = $date[0]['id'];
         $baby_tooth->save();
+        
+        
 
         return redirect('baby_checkups');
     }
@@ -112,8 +117,6 @@ class Baby_checkupController extends Controller
     public function update(Request $request, $id)
     {
         // $baby_checkup = Baby_checkup::find($id);
-
-        
 
         return redirect('baby_checkups');
     }
