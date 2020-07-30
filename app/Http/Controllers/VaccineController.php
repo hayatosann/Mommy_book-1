@@ -27,7 +27,9 @@ class VaccineController extends Controller
      */
     public function create()
     {
-        //
+
+
+        return view('vaccines.create');
     }
 
     /**
@@ -38,7 +40,22 @@ class VaccineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vaccine = new Vaccine();
+
+        $vaccine->name = $request->name;
+        $vaccine->shot_date = $request->shot_date;
+        $vaccine->shot_place = 'abc';
+        $vaccine->physician_sign = $request->physician_sign;
+        $vaccine->react = $request->react;
+        $vaccine->result = $request->result;
+        $vaccine->hospital_name = $request->hospital_name;
+        $vaccine->manufacture_lot = $request->manufacture_lot;
+        $vaccine->remarks = $request->remarks;
+        $vaccine->baby_id = 1;
+        $vaccine->save();
+
+        return redirect('vaccines');
+
     }
 
     /**
