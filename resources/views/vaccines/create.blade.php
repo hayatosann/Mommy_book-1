@@ -11,13 +11,13 @@
 
 <!-- 登録ボタンのフォーム -->
 @section('form')
-<form action=""></form>
+<form action="{{ route('vaccines.store') }}" method="post">
 @endsection
 
 @section('lists')
-<li>ワクチン名: <span><input type="text"></span></li>
-<li>接種年月日: <span><input type="date"></span></li>
-<li>注射部位:
+<li>ワクチン名: <span><input type="text" name="name"></span></li>
+<li>接種年月日: <span><input type="date" name="shot_date"></span></li>
+<!-- <li>注射部位:
     <span>
         <ul>
             <li><input type="checkbox" value="null">✖ツベルクリン反応</input></li>
@@ -29,9 +29,9 @@
         </ul>
 
     </span>
-</li>
-<li>実施者名: <span><input type="text"></span></li>
-<li>反応: <span><input type="number"></span> mm</li>
+</li> -->
+<li>実施者名: <span><input type="text" name="physician_sign"></span></li>
+<li>反応: <span><input type="number" name="react"></span> mm</li>
 <li>判定:
     <span>
         <select name="result" id="">
@@ -42,9 +42,9 @@
         </select>
     </span>
 </li>
-<li>病院名: <span><input type="text"></span></li>
-<li>メーカー/ロット: <span><input type="text"></span></li>
-<li>備考: <span><input type="textarea"></span></li>
+<li>病院名: <span><input type="text" name="hospital_name"></span></li>
+<li>メーカー/ロット: <span><input type="text" name="manufacture_lot"></span></li>
+<li>備考: <span><input type="textarea" name="remarks"></span></li>
 @endsection
 
 @section('back')
