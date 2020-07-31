@@ -17,40 +17,50 @@ class BabyController extends Controller
      */
     public function index()
     {
-        $babies = Baby::all();
+        //   $babies = Baby::all();
           // ログインしているユーザーの赤ちゃんのデータを取ってくる
-          $kid = Auth::user()->baby;
+          $kids = Auth::user()->baby;
+          foreach ($kids as $kid){
+              $baby = Baby::find($kid['id']); 
+              $birthdate = $baby->birthdate;
+            // dd($birthdate);
+              $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
+            // dd($today);
+              $birthday = strtotime($birthdate)/ (60 * 60 * 24);
+                  if($today > $birthday){
+                      $age = ($today - $birthday);
+                      // dd($age);
+                      if($age > 364){
+                          $age = floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
+                      }elseif($age > 29){
+                          $age = floor($age/30).'ヶ月'.($age%30).'日';
+                      }else{
+                          $age = $age.'日';
+                      };
+                  }
+                  $baby_id = $baby->id;
+          }
+          
+         
         //   dd($kid[0]['id']);
           // baby_idを取得（赤ちゃんを一人ずつ設定する前提）
-          $baby = Baby::find($kid[0]['id']);
+        //   $baby = Baby::find($kid[0]['id']);
         //   dd($baby);
         // ログインしている赤ちゃんの親のid
         //   $user = $baby['user_id'];
 
         // 生まれる前後での条件分岐
-        $birthdate = $baby->birthdate;
-        // dd($birthdate);
-        $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
-        // dd($today);
-        $birthday = strtotime($birthdate)/ (60 * 60 * 24);
-        if($today > $birthday){
-            $age = ($today - $birthday);
-            // dd($age);
-            if($age > 364){
-                $age = floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
-            }elseif($age > 29){
-                $age = floor($age/30).'ヶ月'.($age%30).'日';
-            }else{
-                $age = $age.'日';
-            };
-        }
+        
+
         // ログインしている子どものbaby_id
-        $kid = $kid[0]['id'];
-        $vaccines = Baby::find($kid)->vaccine->sortByDesc("id")->take(1);
-        $baby_checkups = Baby::find($kid)->baby_checkup->sortByDesc("id")->take(1);
+        
+
+        $kid = $kid['id'];
+        $vaccines = Baby::find($baby_id)->vaccine->sortByDesc("id")->take(1);
+        $baby_checkups = Baby::find($baby_id)->baby_checkup->sortByDesc("id")->take(1);
         // dd($baby_checkups);
 
-         return view('babies.index',['babies' => $babies,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups, 'baby'=>$baby]);
+         return view('babies.index',['kids' => $kids,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups,]);
     }
 
     /**

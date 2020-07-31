@@ -20,15 +20,15 @@
   <div class="babies-wrapper">
     <div class="bars">
       <div class="babies">
-        @foreach($babies as $baby)
+        @foreach($kids as $kid)
           <!-- 条件分岐 -->
-          @if($baby->gender == "男性")
-            <a href="#">{{$baby->nickname}}くん</a>
-          @elseif($baby->gender == "女性")
-            <a href="#" class="girl">{{$baby->nickname}}ちゃん</a>
-          @elseif($baby->gender == "no comment")
+          @if($kid->gender == "男性")
+            <a href="#">{{$kid->nickname}}くん</a>
+          @elseif($kid->gender == "女性")
+            <a href="#" class="girl">{{$kid->nickname}}ちゃん</a>
+          @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
-            <a href="#" class="none">{{$baby->nickname}}ちゃん</a>
+            <a href="#" class="none">{{$kid->nickname}}ちゃん</a>
           @endif
         @endforeach
       </div>

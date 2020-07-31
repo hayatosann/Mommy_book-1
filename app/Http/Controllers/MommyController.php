@@ -29,10 +29,13 @@ class MommyController extends Controller
         $baby = Auth::user()->baby;
         // dd($baby);
         // baby_idを取得（赤ちゃんを一人ずつ設定する前提）
-        $baby = Baby::find($baby[0]['id']);
+        // $baby = Baby::find($baby[0]['id']);
         // dd($baby);
-        $birthdate = $baby->birthdate;
+        // $newbaby = array_pop($baby);
+        $baby = $baby->sortByDesc('id')->first();
+        $birthdate = $baby['birthdate'];
         // dd($birthdate);
+        
         // 今日の日付
         $today = Carbon::today();
         // 予定日
@@ -52,7 +55,7 @@ class MommyController extends Controller
                 $birthdate = $baby->birthdate;
                 $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
                 $birthday = strtotime($birthdate)/ (60 * 60 * 24);
-                if($today > $birthday){
+                if($today >= $birthday){
                     $age = ($today - $birthday);
                     if($age > 364){
                         $week = '赤ちゃん生後:'.floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
