@@ -1,8 +1,10 @@
 <?php
 
 namespace App;
-namespace App\Vaccine;
-namespace App\Baby_checkup;
+// namespace App\Vaccine;
+// namespace App\Baby_checkup;
+
+
 
 use Illuminate\Database\Eloquent\Model;
 

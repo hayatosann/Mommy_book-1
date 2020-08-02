@@ -21,16 +21,20 @@
     <div class="bars">
       <div class="babies">
         @foreach($kids as $kid)
+        <form action="{{route('babies.update', $kid->id)}}" post="method">
+            @csrf
+            @method('put')
           <!-- 条件分岐 -->
           @if($kid->gender == "男性")
-            <a href="#">{{$kid->nickname}}くん</a>
+            <button >{{$kid->nickname}}くん</button>
           @elseif($kid->gender == "女性")
-            <a href="#" class="girl">{{$kid->nickname}}ちゃん</a>
+            <button class="girl">{{$kid->nickname}}ちゃん</button>
           @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
-            <a href="#" class="none">{{$kid->nickname}}ちゃん</a>
+            <button class="none">{{$kid->nickname}}ちゃん</button>
           @endif
         @endforeach
+        </form>
       </div>
       <div class="create_baby">
         <a href="{{route('babies.create')}}">新規登録</a>
@@ -48,12 +52,13 @@
 
   <div class="main-wrapper">
     <div class="heading">
-      <h1>✳︎生後:{{$age}}✳︎</h1>
+    <!-- 年齢を表示 -->
+    <h1>✳︎{{$age}}✳︎</h1>
     </div>
     <div class="baby-details">
       <div class="graph">
         <h2>グラフ</h2>
-        <img src="img/graph.png" alt="">
+        <!-- <img src="img/graph.png" alt=""> -->
       </div>
       <div class="details">
         <div class="detail">
@@ -61,7 +66,7 @@
           <p>最新の結果詳細<br>
           @foreach($baby_checkups as $baby_checkup)
             検査年月日:{{$baby_checkup->date}}<br>
-            体重:{{$baby_checkup->weight}}㎏<<br>
+            体重:{{$baby_checkup->weight}}g<br>
             身長:{{$baby_checkup->height}}cm<br>
             胸囲:{{$baby_checkup->chest}}cm<br>
             頭囲:{{$baby_checkup->head}}cm<br>
@@ -96,11 +101,11 @@
                 判定: {{$vaccine->result}}<br>
                 病院名: {{$vaccine->hospital_name}}<br>
                 メーカー/ロット: {{$vaccine->manufacture_lot}}<br>
-                備考: {{$vaccine->remarks}}><br>
+                備考: {{$vaccine->remarks}}<br>
             @endforeach
           </p>
           <div class="detail-button">
-            <a href="vaccination">一覧ページ</a>
+            <a href="{{route('vaccines.index')}}">一覧ページ</a>
           </div>
         </div>
       </div>

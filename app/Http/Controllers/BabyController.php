@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use App\Baby;
 use App\Baby;
 use App\Baby_checkup;
 use App\Vaccine;
@@ -17,50 +18,60 @@ class BabyController extends Controller
      */
     public function index()
     {
-        //   $babies = Baby::all();
+        //   $babies = Baby::find($id);
+        //   dd($babies);
           // ログインしているユーザーの赤ちゃんのデータを取ってくる
           $kids = Auth::user()->baby;
           foreach ($kids as $kid){
-              $baby = Baby::find($kid['id']); 
+              $baby = Baby::find($kid['id']);
+              $baby_id = $baby->id;
               $birthdate = $baby->birthdate;
-            // dd($birthdate);
+              // dd($birthdate);
               $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
-            // dd($today);
+              // dd($today);
               $birthday = strtotime($birthdate)/ (60 * 60 * 24);
-                  if($today > $birthday){
+                // 出産後の場合
+                  if($today >= $birthday){
                       $age = ($today - $birthday);
                       // dd($age);
                       if($age > 364){
-                          $age = floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
+                          $age = '生後:'.floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
                       }elseif($age > 29){
-                          $age = floor($age/30).'ヶ月'.($age%30).'日';
+                          $age = '生後:'.floor($age/30).'ヶ月'.($age%30).'日';
                       }else{
-                          $age = $age.'日';
+                          $age = '生後:'.$age.'日';
                       };
+                  // 出産前の場合
+                  }else{
+                        $age = ($birthday - $today);
+                        if($age > 29){
+                            $age = 'ご誕生まで:'.floor($age/30).'ヶ月'.($age%30).'日';
+                        }else{
+                            $age = 'ご誕生まで:'. $age.'日';
+                        }
                   }
-                  $baby_id = $baby->id;
+
           }
-          
-         
         //   dd($kid[0]['id']);
           // baby_idを取得（赤ちゃんを一人ずつ設定する前提）
         //   $baby = Baby::find($kid[0]['id']);
         //   dd($baby);
         // ログインしている赤ちゃんの親のid
         //   $user = $baby['user_id'];
-
+        // dd($baby);
         // 生まれる前後での条件分岐
-        
+
 
         // ログインしている子どものbaby_id
-        
+
 
         $kid = $kid['id'];
+        // dd($kid);
         $vaccines = Baby::find($baby_id)->vaccine->sortByDesc("id")->take(1);
         $baby_checkups = Baby::find($baby_id)->baby_checkup->sortByDesc("id")->take(1);
         // dd($baby_checkups);
 
-         return view('babies.index',['kids' => $kids,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups,]);
+         return view('babies.index',['kids' => $kids,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups,'baby_id'=>$baby_id]);
     }
 
     /**
@@ -160,11 +171,13 @@ class BabyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($kid)
     {
-    //
+        $babies = Baby::find($kid->id);
+         echo dd($babies);
 
-    }
+  }
+
 
     /**
      * Remove the specified resource from storage.

@@ -35,7 +35,7 @@ header {
   padding: 0 10px;
 
 }
-.bars a {
+.bars a, .bars button {
   font-size: 7px;
   background-color: rgb(10, 157, 255);
   color: black;
@@ -46,7 +46,7 @@ header {
   font-weight: bold;
   cursor: pointer;
 }
-.bars a:hover {
+.bars a:hover, .bars button:hover {
   opacity: 0.5;
 }
 .create_baby a {
