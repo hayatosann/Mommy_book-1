@@ -18,8 +18,6 @@ class BabyController extends Controller
      */
     public function index()
     {
-        //   $babies = Baby::find($id);
-        //   dd($babies);
           // ログインしているユーザーの赤ちゃんのデータを取ってくる
           $kids = Auth::user()->baby;
           foreach ($kids as $kid){
@@ -162,7 +160,47 @@ class BabyController extends Controller
      */
     public function edit($id)
     {
-    //
+        // dd($id);
+        $baby = Baby::find($id);
+        // dd($babies);
+        $kids = Auth::user()->baby;
+        // dd($kids);
+        foreach ($kids as $kid){
+            // $baby = Baby::find($id);
+            // $baby_id = $baby->id;
+            $birthdate = $baby->birthdate;
+            // dd($birthdate);
+            $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
+            // dd($today);
+            $birthday = strtotime($birthdate)/ (60 * 60 * 24);
+              // 出産後の場合
+                if($today >= $birthday){
+                    $age = ($today - $birthday);
+                    // dd($age);
+                    if($age > 364){
+                        $age = '生後:'.floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
+                    }elseif($age > 29){
+                        $age = '生後:'.floor($age/30).'ヶ月'.($age%30).'日';
+                    }else{
+                        $age = '生後:'.$age.'日';
+                    };
+                // 出産前の場合
+                }else{
+                      $age = ($birthday - $today);
+                      if($age > 29){
+                          $age = 'ご誕生まで:'.floor($age/30).'ヶ月'.($age%30).'日';
+                      }else{
+                          $age = 'ご誕生まで:'. $age.'日';
+                      }
+                }
+
+        }
+        // dd($id);
+        // echo dd($babies);
+
+        $vaccines = Baby::find($id)->vaccine->sortByDesc("id")->take(1);
+        $baby_checkups = Baby::find($id)->baby_checkup->sortByDesc("id")->take(1);
+        return view('babies.index', ['id'=> $id, 'kids' => $kids, 'age' => $age, 'vaccines' => $vaccines, 'baby_checkups' => $baby_checkups]);
     }
     /**
      * Update the specified resource in storage.
@@ -171,10 +209,8 @@ class BabyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($kid)
+    public function update($id)
     {
-        $babies = Baby::find($kid->id);
-         echo dd($babies);
 
   }
 

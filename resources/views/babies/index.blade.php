@@ -21,17 +21,17 @@
     <div class="bars">
       <div class="babies">
         @foreach($kids as $kid)
-        <form action="{{route('babies.update', $kid->id)}}" post="method">
+        <!-- <form action="" post="method">
             @csrf
-            @method('put')
+            @method('put') -->
           <!-- 条件分岐 -->
           @if($kid->gender == "男性")
-            <button >{{$kid->nickname}}くん</button>
+            <a href="{{route('babies.edit', $kid->id)}}">{{$kid->nickname}}くん</a>
           @elseif($kid->gender == "女性")
-            <button class="girl">{{$kid->nickname}}ちゃん</button>
+            <a href="{{route('babies.edit', $kid->id)}}" class="girl">{{$kid->nickname}}ちゃん</a>
           @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
-            <button class="none">{{$kid->nickname}}ちゃん</button>
+            <a href="{{route('babies.edit', $kid->id)}}" class="none">{{$kid->nickname}}ちゃん</a>
           @endif
         @endforeach
         </form>
@@ -45,6 +45,7 @@
   <div class="top-wrapper">
     <div class="top-box">
       <div class="box">
+          ここに画像
         <img src="img/boybaby.png" alt="">
       </div>
     </div>
@@ -58,7 +59,8 @@
     <div class="baby-details">
       <div class="graph">
         <h2>グラフ</h2>
-        <!-- <img src="img/graph.png" alt=""> -->
+        ここにグラフ
+        <img src="img/graph.png" alt="">
       </div>
       <div class="details">
         <div class="detail">
