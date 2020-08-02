@@ -21,17 +21,29 @@
     <div class="bars">
       <div class="babies">
         @foreach($kids as $kid)
-        <!-- <form action="" post="method">
-            @csrf
-            @method('put') -->
           <!-- 条件分岐 -->
           @if($kid->gender == "男性")
-            <a href="{{route('babies.edit', $kid->id)}}">{{$kid->nickname}}くん</a>
+            <!-- <a href="{{route('babies.edit', $kid->id)}}"></a> -->
+            <form action="{{route('babies.edit', $kid->id)}}" post="method">
+            @csrf
+            @method('put')
+            <button >{{$kid->nickname}}くん</button>
+            </form>
           @elseif($kid->gender == "女性")
-            <a href="{{route('babies.edit', $kid->id)}}" class="girl">{{$kid->nickname}}ちゃん</a>
+            <!-- <a href="{{route('babies.edit', $kid->id)}}" class="girl"></a> -->
+            <form action="{{route('babies.edit', $kid->id)}}" post="method">
+            @csrf
+            @method('put')
+            <button class="girl">{{$kid->nickname}}ちゃん</button>
+            </form>
           @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
-            <a href="{{route('babies.edit', $kid->id)}}" class="none">{{$kid->nickname}}ちゃん</a>
+            <!-- <a href="{{route('babies.edit', $kid->id)}}" class="none"></a> -->
+            <form action="{{route('babies.edit', $kid->id)}}" post="method">
+            @csrf
+            @method('put')
+            <button class="none">{{$kid->nickname}}ちゃん</button>
+            </form>
           @endif
         @endforeach
         </form>
@@ -45,7 +57,6 @@
   <div class="top-wrapper">
     <div class="top-box">
       <div class="box">
-          ここに画像
         <img src="img/boybaby.png" alt="">
       </div>
     </div>
@@ -59,7 +70,6 @@
     <div class="baby-details">
       <div class="graph">
         <h2>グラフ</h2>
-        ここにグラフ
         <img src="img/graph.png" alt="">
       </div>
       <div class="details">

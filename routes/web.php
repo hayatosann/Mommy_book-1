@@ -38,7 +38,6 @@ Route::resource('mommies', 'MommyController');
 
 
 
-
 Route::resource('baby_checkups', 'Baby_checkupController');
 Route::post('users/confirm', 'UserController@confirm')->name('users.confirm');
 // Route::post('users/register', 'RegisterController@confirm')->name('users.register');

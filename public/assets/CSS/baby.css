@@ -168,3 +168,13 @@ footer {
   height: 40px;
   background-color: pink;
 }
+
+/* 追加 */
+.babies{
+    display: flex;
+    flex-direction: row;
+}
+
+.babies form{
+    margin-right: 5px;
+}
