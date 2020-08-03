@@ -65,12 +65,16 @@ class BabyController extends Controller
 
         $kid = $kid['id'];
         // dd($kid);
-        // $vaccines = Baby::find($baby_id)->vaccine->sortByDesc("id")->take(1);
-        // $baby_checkups = Baby::find($baby_id)->baby_checkup;
-        // dd($baby_checkups);
+        $vaccines = Baby::find($baby_id)->vaccine->sortByDesc("id")->take(1);
+        $baby_checkups = Baby::find($baby_id)->baby_checkup;
+        if (isset($baby_checkups)){
+            $baby_checkup = $baby_checkups->orderBy('created_at', 'desc')->first();
+        } else {
+            $baby_checkup = $baby_checkups;
+        }
 
-         return view('babies.index',['kids' => $kids,'age'=>$age,'baby_id'=>$baby_id]);
-         // 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups
+         return view('babies.index',['kids' => $kids,'age'=>$age,'baby_id'=>$baby_id,'vaccines'=>$vaccines, 'baby_checkup'=>$baby_checkup]);
+         // 
     }
 
     /**
@@ -185,11 +189,10 @@ class BabyController extends Controller
                  }
         }
 
-        $vaccines = Baby::find($id)->vaccine->sortByDesc("id")->take(1);
-        // $baby_checkups = Baby::find($id)->baby_checkup;
-        // dd($baby_checkups);
-        return view('babies.show', ['id'=> $id, 'kids' => $kids, 'age' => $age]);
-        // 'vaccines' => $vaccines, 'baby_checkups' => $baby_checkups
+        $vaccine = Baby::find($id)->vaccine->first();
+        $baby_checkup = Baby::find($id)->baby_checkups->first();
+        
+        return view('babies.show', ['id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
     }
 
     /**

@@ -52,7 +52,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->urinal_protein = $request->urinal_protein;
         $maternity_checkup->urinal_sugar = $request->urinal_sugar;
         $maternity_checkup->note = $request->note;
-        $maternity_checkup->user_id = 1;
+        $maternity_checkup->user_id = Auth::user()->id;
         $maternity_checkup->save();
 
         return redirect('maternity_checkups');

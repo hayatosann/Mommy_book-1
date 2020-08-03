@@ -76,7 +76,7 @@
         <div class="detail">
           <h2>検診結果</h2>
           <p>最新の結果詳細<br>
-          {{-- @foreach($baby_checkups as $baby_checkup)
+            @if (isset($baby_checkup))
             検査年月日:{{$baby_checkup->date}}<br>
             体重:{{$baby_checkup->weight}}g<br>
             身長:{{$baby_checkup->height}}cm<br>
@@ -95,7 +95,7 @@
             健康・要観察:{{$baby_checkup->checkups}}<br>
             指導事項:{{$baby_checkup->guidance}}<br>
             施設名/担当者名:{{$baby_checkup->supervisor_name}}<br>
-         @endforeach --}}
+            @endif
           </p>
           <div class="detail-button">
             <a href="{{route('baby_checkups.index')}}">一覧ページ</a>
@@ -104,7 +104,7 @@
         <div class="detail">
           <h2>予防接種</h2>
           <p>最新の結果詳細<br>
-            {{-- @foreach($vaccines as $vaccine)
+                @if (isset($vaccine))
                 ワクチン名: {{$vaccine->name}}<br>
                 接種年月日: {{$vaccine->shot_date}}<br>
                 注射部位: {{$vaccine->shot_place}}<br>
@@ -114,7 +114,7 @@
                 病院名: {{$vaccine->hospital_name}}<br>
                 メーカー/ロット: {{$vaccine->manufacture_lot}}<br>
                 備考: {{$vaccine->remarks}}<br>
-            @endforeach --}}
+                @endif
           </p>
           <div class="detail-button">
             <a href="{{route('vaccines.index')}}">一覧ページ</a>

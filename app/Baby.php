@@ -21,6 +21,6 @@ class Baby extends Model
     }
 
     public function baby_checkups(){
-        return $this->hasmany('App\Baby_checkup');
+        return $this->hasMany('App\Baby_checkup');
     }
 }

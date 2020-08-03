@@ -57,7 +57,8 @@
   <div class="top-wrapper">
     <div class="top-box">
       <div class="box">
-        <img src="img/boybaby.png" alt="">
+        <img src="{{ asset('/img/boybaby.png') }}" alt="">
+        {{-- <img src="img/boybaby.png" alt=""> --}}
       </div>
     </div>
   </div>
@@ -70,14 +71,15 @@
     <div class="baby-details">
       <div class="graph">
         <h2>グラフ</h2>
-        <img src="img/graph.png" alt="">
+        <img src="{{ asset('/img/graph.png') }}" alt="">
+        {{-- <img src="img/graph.png" alt=""> --}}
       </div>
       <div class="details">
         <div class="detail">
           <h2>検診結果</h2>
           <p>最新の結果詳細<br>
-          {{-- @foreach($baby_checkups as $baby_checkup) --}}
-            {{-- 検査年月日:{{$baby_checkup->date}}<br>
+          @if (isset($baby_checkup))
+            検査年月日:{{$baby_checkup->date}}<br>
             体重:{{$baby_checkup->weight}}g<br>
             身長:{{$baby_checkup->height}}cm<br>
             胸囲:{{$baby_checkup->chest}}cm<br>
@@ -94,8 +96,8 @@
             生え変わり:{{$baby_checkup->baby_tooth->replaced_teeth}}本<br>
             健康・要観察:{{$baby_checkup->checkups}}<br>
             指導事項:{{$baby_checkup->guidance}}<br>
-            施設名/担当者名:{{$baby_checkup->supervisor_name}}<br> --}}
-         {{-- @endforeach --}}
+            施設名/担当者名:{{$baby_checkup->supervisor_name}}<br>
+          @endif
           </p>
           <div class="detail-button">
             <a href="{{route('baby_checkups.index')}}">一覧ページ</a>
@@ -104,7 +106,7 @@
         <div class="detail">
           <h2>予防接種</h2>
           <p>最新の結果詳細<br>
-            {{-- @foreach($vaccines as $vaccine)
+            @foreach($vaccines as $vaccine)
                 ワクチン名: {{$vaccine->name}}<br>
                 接種年月日: {{$vaccine->shot_date}}<br>
                 注射部位: {{$vaccine->shot_place}}<br>
@@ -114,7 +116,7 @@
                 病院名: {{$vaccine->hospital_name}}<br>
                 メーカー/ロット: {{$vaccine->manufacture_lot}}<br>
                 備考: {{$vaccine->remarks}}<br>
-            @endforeach --}}
+            @endforeach
           </p>
           <div class="detail-button">
             <a href="{{route('vaccines.index')}}">一覧ページ</a>
