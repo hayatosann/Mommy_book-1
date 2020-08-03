@@ -5,7 +5,6 @@ namespace App;
 // namespace App\Baby_checkup;
 
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Baby extends Model
@@ -21,7 +20,7 @@ class Baby extends Model
         return $this->hasMany('App\Vaccine');
     }
 
-    public function baby_checkup(){
+    public function baby_checkups(){
         return $this->hasmany('App\Baby_checkup');
     }
 }

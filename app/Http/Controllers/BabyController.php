@@ -65,11 +65,12 @@ class BabyController extends Controller
 
         $kid = $kid['id'];
         // dd($kid);
-        $vaccines = Baby::find($baby_id)->vaccine->sortByDesc("id")->take(1);
-        $baby_checkups = Baby::find($baby_id)->baby_checkup->sortByDesc("id")->take(1);
+        // $vaccines = Baby::find($baby_id)->vaccine->sortByDesc("id")->take(1);
+        // $baby_checkups = Baby::find($baby_id)->baby_checkup;
         // dd($baby_checkups);
 
-         return view('babies.index',['kids' => $kids,'age'=>$age, 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups,'baby_id'=>$baby_id]);
+         return view('babies.index',['kids' => $kids,'age'=>$age,'baby_id'=>$baby_id]);
+         // 'vaccines'=>$vaccines, 'baby_checkups'=>$baby_checkups
     }
 
     /**
@@ -150,6 +151,45 @@ class BabyController extends Controller
     public function show($id)
     {
 
+         $baby = Baby::find($id);
+         // dd($babies);
+         $kids = Auth::user()->baby;
+         // dd($kids);
+         foreach ($kids as $kid){
+             // $baby = Baby::find($id);
+             // $baby_id = $baby->id;
+             $birthdate = $baby->birthdate;
+             // dd($birthdate);
+             $today = strtotime(date("Y/m/d"))/ (60 * 60 * 24);
+             // dd($today);
+             $birthday = strtotime($birthdate)/ (60 * 60 * 24);
+               // 出産後の場合
+                 if($today >= $birthday){
+                     $age = ($today - $birthday);
+                     // dd($age);
+                     if($age > 364){
+                         $age = '生後:'.floor($age/30/12).'年'.floor($age%30/12).'ヶ月';
+                     }elseif($age > 29){
+                         $age = '生後:'.floor($age/30).'ヶ月'.($age%30).'日';
+                     }else{
+                         $age = '生後:'.$age.'日';
+                     };
+                 // 出産前の場合
+                 }else{
+                       $age = ($birthday - $today);
+                       if($age > 29){
+                           $age = 'ご誕生まで:'.floor($age/30).'ヶ月'.($age%30).'日';
+                       }else{
+                           $age = 'ご誕生まで:'. $age.'日';
+                       }
+                 }
+        }
+
+        $vaccines = Baby::find($id)->vaccine->sortByDesc("id")->take(1);
+        // $baby_checkups = Baby::find($id)->baby_checkup;
+        // dd($baby_checkups);
+        return view('babies.show', ['id'=> $id, 'kids' => $kids, 'age' => $age]);
+        // 'vaccines' => $vaccines, 'baby_checkups' => $baby_checkups
     }
 
     /**
