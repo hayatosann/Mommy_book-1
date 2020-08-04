@@ -15,11 +15,11 @@ class VaccineController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $users = Auth::user();
         // $vaccines = Vaccine::all();
 
         // dd($vaccines);
-        return view('vaccines.index', ['user', $user]);
+        return view('vaccines.index', ['users', $users]);
     }
 
     /**

@@ -70,7 +70,7 @@
   <div class="button-wrapper">
     <div class="buttons">
       <button><a href="{{route('maternity_checkups.create')}}">検診結果入力</a></button>
-      <button><a href="{{route('babies.index')}}">赤ちゃんページ</a></button>
+      <button><a href="{{route('babies.show', $id)}}">赤ちゃんページ</a></button>
       <button><a href="#">カレンダー</a></button>
       <button><a href="#">子育て情報一覧</a></button>
     </div>

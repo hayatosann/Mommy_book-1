@@ -97,24 +97,11 @@ class BabyController extends Controller
     public function confirm(Request $request)
     {
         $nickname = $request->nickname;
-        // dd($nickname);
         $gender = $request->gender;
         $birthdate = $request->birthdate;
-        // dd($data);
         return view('babies.check', compact('nickname', 'gender', 'birthdate'));
-        // dd($request);
-        // $data = $request->session()->all();
-        // dd($data);
-        // $nickname = $request->session()->get('nickname');
-        // dd($nickname);
-        // $baby = new Baby($request->all());
-        // 入力フォームの内容をセッションへ保存
-        // (name属性, $request->input('name属性の値','値がない時に出力するもの')
-        // $request->session()->('name', $request->get('nickname', ''));
-        // $request->session()->('name', $request->get('gender', ''));
-        // $request->session()->('name', $request->get('birthdate'));
-
     }
+    
     // 確認完了・一人目の子どもの保存処理
     public function store(CreateBaby $request)
     {
@@ -127,6 +114,8 @@ class BabyController extends Controller
         $baby->status = '出産前';
         $baby->user_id = Auth::user()->id;
         $baby->save();
+        $id = Auth::user()->baby->sortByDesc("id")->take(1)->first()['id'];
+        // $id = $user_baby['name'];
 
         return redirect()->route('mommies.index');
     }
@@ -189,9 +178,9 @@ class BabyController extends Controller
                  }
         }
 
-        $vaccine = Baby::find($id)->vaccine->first();
-        $baby_checkup = Baby::find($id)->baby_checkups->first();
-        
+        $vaccine = Baby::find($id)->vaccine->sortByDesc("id")->take(1)->first();
+        $baby_checkup = Baby::find($id)->baby_checkups->sortByDesc("id")->take(1)->first();
+        // dd($vaccine);
         return view('babies.show', ['id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
     }
 
