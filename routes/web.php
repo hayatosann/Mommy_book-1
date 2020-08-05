@@ -24,6 +24,7 @@ Route::resource('albums', 'AlbumController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@root')->name('root');
 
 // 赤ちゃんページ
 Route::resource('babies', 'BabyController');
