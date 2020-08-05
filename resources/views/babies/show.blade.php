@@ -24,26 +24,15 @@
         @foreach($kids as $kid)
           <!-- 条件分岐 -->
           @if($kid->gender == "男性")
-          {{-- <a href="{{route('babies.edit', $kid->id)}}"></a> --}}
             <a href="{{route('babies.show', $kid->id)}}">
-            {{-- @csrf
-            @method('put') --}}
-            <button >{{$kid->nickname}}くん</button>
-            </form>
+            <button >{{$kid->nickname}}くん</button></a>
           @elseif($kid->gender == "女性")
-            {{-- <a href="{{route('babies.edit', $kid->id)}}" class="girl"></a> --}}
             <a href="{{route('babies.show', $kid->id)}}">
-            {{-- @csrf
-            @method('put') --}}
             <button class="girl">{{$kid->nickname}}ちゃん</button></a>
-            </form>
           @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
             <a href="{{route('babies.show', $kid->id)}}">
-            {{-- @csrf
-            @method('put') --}}
             <button class="none">{{$kid->nickname}}ちゃん</button></a>
-            </form>
           @endif
         @endforeach
         </form>

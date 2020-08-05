@@ -35,7 +35,7 @@ header {
   padding: 0 10px;
 
 }
-.bars a, .bars button {
+.create_baby a, .bars button {
   font-size: 7px;
   background-color: rgb(10, 157, 255);
   color: black;
@@ -170,11 +170,8 @@ footer {
 }
 
 /* 追加 */
-.babies{
+/* .babies{
     display: flex;
     flex-direction: row;
 }
-
-.babies form{
-    margin-right: 5px;
-}
+ */
