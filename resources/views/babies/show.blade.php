@@ -9,14 +9,7 @@
   <link rel="stylesheet" href="{{ asset('/assets/css/baby.css')}}">
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <h2>Mommy Book</h2>
-    </div>
-    <div class="header-right">
-      <i class="fas fa-bars"></i>
-    </div>
-  </header>
+  @include('layouts.app')
 
   <div class="babies-wrapper">
     <div class="bars">
@@ -106,7 +99,7 @@
                 @endif
           </p>
           <div class="detail-button">
-            <a href="{{route('vaccines.index')}}">一覧ページ</a>
+            <a href="{{route('babies.vaccines.index', $id)}}">一覧ページ</a>
           </div>
         </div>
       </div>

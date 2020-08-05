@@ -10,10 +10,11 @@
 @endsection
 
 @section('register')
-<a href="{{ route('vaccines.create')}}" class="register">登録</a>
+<a href="{{ route('babies.vaccines.create', $id)}}" class="register">登録</a>
 @endsection
 
 @section('lists')
+@if($vaccines !== null)
 @foreach($vaccines as $vaccine)
 <div class="wrapper_display">
     <div class="wrapper_lists">
@@ -30,9 +31,9 @@
         </ul>
         <div class="btn_edit">
             <!-- 編集ボタン -->
-            <a href="{{ route('vaccines.edit', $vaccine->id)}}" class="edit">編集</a>
+            <a href="{{ route('babies.vaccines.edit', [$id, $vaccine->id])}}" class="edit">編集</a>
             <!-- 削除ボタン -->
-            <form action="{{ route('vaccines.destroy', $vaccine->id)}}" method="post">
+            <form action="{{ route('babies.vaccines.destroy', [$id, $vaccine->id])}}" method="post">
             @csrf
             @method('delete')
                     <button class="delete">削除</button>
@@ -41,9 +42,10 @@
     </div>
 </div>
 @endforeach
+@endif
 @endsection
 
 
 @section('back')
-<a href="" class="back">戻る</a>
+<a href="{{route('babies.show', $id)}}" class="back">戻る</a>
 @endsection
