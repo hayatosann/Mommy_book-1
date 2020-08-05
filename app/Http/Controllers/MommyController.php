@@ -70,8 +70,10 @@ class MommyController extends Controller
             $week  = '妊娠 '.floor($week).'週目';
         };
 
+        $id = Auth::user()->baby->sortByDesc("id")->take(1)->first()['id'];
+
         // dd($maternity_checkups);
-        return view('babies.mommy', ['maternity_checkups'=> $maternity_checkups, 'month' => $month, 'week' => $week, 'btn' => $btn, 'baby'=>$baby]);
+        return view('babies.mommy', ['maternity_checkups'=> $maternity_checkups, 'month' => $month, 'week' => $week, 'btn' => $btn, 'baby'=>$baby, 'id'=> $id]);
 
     }
 

@@ -111,7 +111,7 @@
                 接種年月日: {{$vaccine->shot_date}}<br>
                 注射部位: {{$vaccine->shot_place}}<br>
                 実施者名: {{$vaccine->physician_sign}}<br>
-                反応: {{$vaccine->react}}mm<br>
+                反応: {{$vaccine->react}}<br>
                 判定: {{$vaccine->result}}<br>
                 病院名: {{$vaccine->hospital_name}}<br>
                 メーカー/ロット: {{$vaccine->manufacture_lot}}<br>

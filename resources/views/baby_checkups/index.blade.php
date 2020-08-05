@@ -11,12 +11,12 @@
 
 <!-- 登録ボタンでのページ遷移 -->
 @section('register')
-<a href="{{ route('baby_checkups.create') }}" class="register">登録</a>
+<a href="{{ route('babies.baby_checkups.create', $id) }}" class="register">登録</a>
 @endsection
 
 @section('lists')
+@if($baby_checkups !== null)
 @foreach($baby_checkups as $baby_checkup)
-
 <div class="wrapper_display">
     <div class="wrapper_lists">
         <ul class="lists_title">
@@ -38,13 +38,12 @@
         <li>健康・要観察:{{$baby_checkup->checkups}}</li>
         <li>指導事項:{{$baby_checkup->guidance}}</li>
         <li>施設名/担当者名:{{$baby_checkup->supervisor_name}}</li>
-
         </ul>
         <div class="btn_edit">
             <!-- 編集ボタン -->
-            <a href="{{ route('baby_checkups.edit',$baby_checkup->id) }}" class="edit">編集</a>
+            <a href="{{ route('babies.baby_checkups.edit',[$id, $baby_checkup->id]) }}" class="edit">編集</a>
             <!-- 削除ボタン -->
-            <form action="{{ route('baby_checkups.destroy', $baby_checkup->id)}}" method="post">
+            <form action="{{ route('babies.baby_checkups.destroy', [$id, $baby_checkup->id])}}" method="post">
                 @csrf
                 @method('delete')
                 <button class="delete">削除</button>
@@ -53,9 +52,10 @@
     </div>
 </div>
 @endforeach
+@endif
 @endsection
 
 
 @section('back')
-<a href="{{route('babies.index')}}" class="back">戻る</a>
+<a href="{{route('babies.show', $id)}}" class="back">戻る</a>
 @endsection

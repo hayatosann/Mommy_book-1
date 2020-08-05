@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Baby_checkup;
 use App\Baby_tooth;
+use App\Baby;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,17 +17,10 @@ class Baby_checkupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $baby_checkups = Baby_checkup::all();
-        // $baby_tooths = Baby_tooth::all();
-        // dd($baby_tooths);
-        // $baby_checkup = Baby_checkup::find(1)->baby_tooth;
-        // dd($baby_checkups);
-        // $baby_tooths = Baby_tooth::find(1)->baby_checkup();
-        
-        
-        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups]);
+        $baby_checkups = Baby::find($id)->baby_checkups;    
+        return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups, 'id' => $id]);
         
     }
 
@@ -35,9 +29,9 @@ class Baby_checkupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('baby_checkups.create');
+        return view('baby_checkups.create', ['id'=> $id]);
     }
 
     /**
@@ -46,9 +40,9 @@ class Baby_checkupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        // dd($request);
+        // dd($id);
         $baby_checkup = new Baby_checkup();
         $baby_tooth = new Baby_tooth();
 
@@ -70,16 +64,15 @@ class Baby_checkupController extends Controller
         $baby_checkup->checkups = $request->checkups;
         $baby_checkup->guidance = $request->guidance;
         $baby_checkup->supervisor_name = $request->supervisor_name;
-        $baby_checkup->baby_id = 1;
-        $baby_tooth->baby_checkup_id = 2;
+        $baby_checkup->baby_id = $id;
         $baby_checkup->save();
         $date = Baby_checkup::orderBy('id', 'desc')->take(1)->get();
         $baby_tooth->baby_checkup_id = $date[0]['id'];
         $baby_tooth->save();
         
         
-
-        return redirect('baby_checkups');
+        // return redirect('babies.baby_checkups');
+        return redirect()->route('babies.baby_checkups.index', $id);
     }
 
     /**
@@ -88,10 +81,6 @@ class Baby_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,12 +88,11 @@ class Baby_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $baby_checkup = Baby_checkup::find($id); 
-        // dd($baby_checkup);
+    public function edit($id, $baby_checkup_id)
+    {   
+        $baby_checkup = Baby_checkup::find($baby_checkup_id); 
 
-        return view('baby_checkups.edit', ['baby_checkup' => $baby_checkup]);
+        return view('baby_checkups.edit', ['baby_checkup' => $baby_checkup, 'id' => $id, 'baby_checkup_id' => $baby_checkup_id ]);
     }
 
     /**
@@ -114,14 +102,11 @@ class Baby_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $baby_checkup_id)
     {
-        // dd($request);
-        $baby_checkup = Baby_checkup::find($id);
-        // dd($baby_checkup);
-        $baby_tooth = Baby_checkup::find($id)->baby_tooth;
-        // dd($baby_tooth);
 
+        $baby_checkup = Baby_checkup::find($baby_checkup_id);
+        $baby_tooth = Baby_checkup::find($baby_checkup_id)->baby_tooth;
         $baby_checkup->date = $request->date;
         $baby_checkup->weight = $request->weight;
         $baby_checkup->height = $request->height;
@@ -140,15 +125,13 @@ class Baby_checkupController extends Controller
         $baby_checkup->checkups = $request->checkups;
         $baby_checkup->guidance = $request->guidance;
         $baby_checkup->supervisor_name = $request->supervisor_name;
-        $baby_checkup->baby_id = 1;
-        // $baby_tooth->baby_checkup_id = 2;
+        $baby_checkup->baby_id = $id;
         $baby_checkup->save();
         $date = Baby_checkup::orderBy('id', 'desc')->take(1)->get();
-        $baby_tooth->baby_checkup_id = $date[0]['id'];
+        $baby_tooth->baby_checkup_id = $baby_checkup_id;
         $baby_tooth->save();
-        // dd($baby_checkup);
 
-        return redirect('baby_checkups');
+        return redirect()->route('babies.baby_checkups.index', $id);
     }
 
     /**
