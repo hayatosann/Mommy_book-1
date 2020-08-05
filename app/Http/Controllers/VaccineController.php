@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vaccine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VaccineController extends Controller
 {
@@ -14,10 +15,11 @@ class VaccineController extends Controller
      */
     public function index()
     {
-        $vaccines = Vaccine::all();
+        $user = Auth::user();
+        // $vaccines = Vaccine::all();
 
         // dd($vaccines);
-        return view('vaccines.index', ['vaccines' => $vaccines]);
+        return view('vaccines.index', ['user', $user]);
     }
 
     /**

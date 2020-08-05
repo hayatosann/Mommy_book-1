@@ -24,5 +24,20 @@ Route::resource('albums', 'AlbumController');
 Route::resource('vaccines', 'VaccineController');
 
 
-Route::resource('baby_checkups', 'Baby_checkupController');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// 赤ちゃんページ
+Route::resource('babies', 'BabyController');
+Route::post('babies/confirm', 'BabyController@confirm')->name('babies.confirm');
+Route::post('babies/sinblings', 'BabyController@sinbling')->name('babies.sinbling');
+Route::resource('mommies', 'MommyController');
+
+
+
+
+Route::resource('baby_checkups', 'Baby_checkupController');
+Route::post('users/confirm', 'UserController@confirm')->name('users.confirm');
+// Route::post('users/register', 'RegisterController@confirm')->name('users.register');

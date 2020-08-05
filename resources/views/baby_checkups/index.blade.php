@@ -38,7 +38,7 @@
         <li>健康・要観察:{{$baby_checkup->checkups}}</li>
         <li>指導事項:{{$baby_checkup->guidance}}</li>
         <li>施設名/担当者名:{{$baby_checkup->supervisor_name}}</li>
-        
+
         </ul>
         <div class="btn_edit">
             <!-- 編集ボタン -->
@@ -57,5 +57,5 @@
 
 
 @section('back')
-<a href="" class="back">戻る</a>
+<a href="{{route('babies.index')}}" class="back">戻る</a>
 @endsection

@@ -49,5 +49,5 @@
 @endsection
 
 @section('back')
-<a href="" class="back">戻る</a>
+<a href="{{route('mommies.index')}}" class="back">戻る</a>
 @endsection

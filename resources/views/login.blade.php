@@ -21,8 +21,8 @@
               いつでも一緒に<br>
               デジタル母子手帳</p>
           <div class="login">
-            <a href="mamaform" class="btn-flat-border">サインアップ</a>
-            <a href="#" class="btn-flat-border">ログイン</a>
+            <a href="/register" class="btn-flat-border">サインアップ</a>
+            <a href="/login" class="btn-flat-border">ログイン</a>
           </div>
         </div>
       </div>

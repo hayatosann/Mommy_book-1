@@ -16,7 +16,7 @@ class Maternity_checkupController extends Controller
     public function index()
     {
         $maternity_checkups = Maternity_checkup::all();
-        // dd($maternity_checkups);
+
         return view('maternity_checkups.index', ['maternity_checkups'=> $maternity_checkups]);
         // return view('momcheckups');
     }
@@ -52,7 +52,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->urinal_protein = $request->urinal_protein;
         $maternity_checkup->urinal_sugar = $request->urinal_sugar;
         $maternity_checkup->note = $request->note;
-        $maternity_checkup->user_id = 1;
+        $maternity_checkup->user_id = Auth::user()->id;
         $maternity_checkup->save();
 
         return redirect('maternity_checkups');
@@ -77,8 +77,8 @@ class Maternity_checkupController extends Controller
      */
     public function edit($id)
     {
-        
-        $maternity_checkup = Maternity_checkup::find($id); 
+
+        $maternity_checkup = Maternity_checkup::find($id);
 
         return view('maternity_checkups.edit', compact('maternity_checkup'));
     }
@@ -108,7 +108,7 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->user_id = 1;
         $maternity_checkup->save(); //DBに保存
 
-    return redirect()->route('maternity_checkups.index'); 
+    return redirect()->route('maternity_checkups.index');
     }
 
     /**

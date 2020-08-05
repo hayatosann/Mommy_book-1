@@ -11,10 +11,15 @@ class User extends Authenticatable
         return $this->hasMany ('App\Maternity_checkup');
     }
 
+
     public function album(){
         return $this->hasMany ('App\album');
     }
     use Notifiable;
+
+    public function baby(){
+        return $this->hasMany('App\Baby');
+    }    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nickname', 'email', 'password', 'zipcode', 'birthdate', 'gender',
     ];
 
     /**

@@ -35,7 +35,7 @@ header {
   padding: 0 10px;
 
 }
-.bars a {
+.bars a, .bars button {
   font-size: 7px;
   background-color: rgb(10, 157, 255);
   color: black;
@@ -46,7 +46,7 @@ header {
   font-weight: bold;
   cursor: pointer;
 }
-.bars a:hover {
+.bars a:hover, .bars button:hover {
   opacity: 0.5;
 }
 .create_baby a {
@@ -56,7 +56,10 @@ header {
 .babies .girl {
   background-color: pink;
 }
-
+/* 追加 */
+.babies .none {
+    background-color: yellow;
+}
 /* top-wrappper css */
 .top-box {
   display: flex;
@@ -103,9 +106,12 @@ header {
   text-align: center;
 }
 .detail p {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid black;
-  width: 160px;
-  height: 15vh;
+  /* width: 160px; */
+  /* height: 15vh; */
   margin: 15px 10px 10px 0;
   text-align: center;
 }
@@ -161,4 +167,14 @@ header {
 footer {
   height: 40px;
   background-color: pink;
+}
+
+/* 追加 */
+.babies{
+    display: flex;
+    flex-direction: row;
+}
+
+.babies form{
+    margin-right: 5px;
 }
