@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('albums.update', [$album->id])}}" class="" method="post">
+<form action="{{route('babies.mommies.albums.update', [$id, $user_id, $album->id])}}" class="" method="post">
 @csrf
 @method('put')
 @endsection

@@ -74,7 +74,7 @@ class BabyController extends Controller
         }
 
          return view('babies.index',['kids' => $kids,'age'=>$age,'baby_id'=>$baby_id,'vaccines'=>$vaccines, 'baby_checkup'=>$baby_checkup]);
-         // 
+         //
     }
 
     /**
@@ -101,7 +101,7 @@ class BabyController extends Controller
         $birthdate = $request->birthdate;
         return view('babies.check', compact('nickname', 'gender', 'birthdate'));
     }
-    
+
     // 確認完了・一人目の子どもの保存処理
     public function store(CreateBaby $request)
     {
@@ -143,11 +143,11 @@ class BabyController extends Controller
      */
     public function show($id)
     {
-
+        $user_id = Auth::user()->id;
+        // dd($user_id);
          $baby = Baby::find($id);
-         // dd($babies);
          $kids = Auth::user()->baby;
-         // dd($kids);
+        //  dd($kids);
          foreach ($kids as $kid){
              // $baby = Baby::find($id);
              // $baby_id = $baby->id;
@@ -181,7 +181,7 @@ class BabyController extends Controller
         $vaccine = Baby::find($id)->vaccine->sortByDesc("id")->take(1)->first();
         $baby_checkup = Baby::find($id)->baby_checkups->sortByDesc("id")->take(1)->first();
         // dd($vaccine);
-        return view('babies.show', ['id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
+        return view('babies.show', ['user_id'=>$user_id, 'id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
     }
 
     /**

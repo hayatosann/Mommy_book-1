@@ -10,7 +10,7 @@
 @endsection
 
 @section('register')
-<a href="{{ route('maternity_checkups.create') }}" class="register">登録</a>
+<a href="{{ route('mommies.maternity_checkups.create', $user_id) }}" class="register">登録</a>
 @endsection
 
 @section('lists')
@@ -32,10 +32,10 @@
             </ul>
             <div class="btn_edit">
 
-              <a href="{{ route('maternity_checkups.edit',$maternity_checkup->id) }}" class="edit">編集</a>
+              <a href="{{ route('mommies.maternity_checkups.edit',[$user_id, $maternity_checkup->id]) }}" class="edit">編集</a>
                 <!-- @yield('edit') -->
 
-                <form action="{{ route('maternity_checkups.destroy', $maternity_checkup->id)}}" method="post">
+                <form action="{{ route('mommies.maternity_checkups.destroy', [$user_id, $maternity_checkup->id])}}" method="post">
                     @csrf
                     @method('delete')
                     <button class="delete">削除</button>

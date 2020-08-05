@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('maternity_checkups.update',[$maternity_checkup->id])}}" class="" method="post">
+<form action="{{route('mommies.maternity_checkups.update',[$user_id, $maternity_checkup->id])}}" class="" method="post">
 @csrf
 @method('put')
 @endsection
@@ -29,7 +29,7 @@
             <option {{ old('edema', $maternity_checkup->edema) == 'mainus' ? 'selected' : '' }} value="mainus">-</option>
             <option {{ old('edema', $maternity_checkup->edema) == 'plus' ? 'selected' : '' }} value="plus">+</option>
             <option {{ old('edema', $maternity_checkup->edema) == 'two_plus' ? 'selected' : '' }} value="two_plus">++</option>
-        </select>  
+        </select>
     </span>
 </li>
 <li>尿蛋白:

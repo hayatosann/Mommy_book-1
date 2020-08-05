@@ -17,7 +17,7 @@
 
 @section('lists')
 <li>検査年月日:<span><input type="date" name="date" value="{{ old('date', $baby_checkup->date) }}"></span></li>
-<li>体重: <span><input type="text" name="weight" value="{{ old('weight', $baby_checkup->weight) }}"></span>㎏</li>
+<li>体重: <span><input type="text" name="weight" value="{{ old('weight', $baby_checkup->weight) }}"></span>g</li>
 <li>身長: <input type="text" name="height" value="{{ old('height', $baby_checkup->height) }}"></span>cm</li>
 <li>胸囲: <input type="text" name="chest" value="{{ old('chest', $baby_checkup->chest) }}"></span>cm</li>
 <li>頭囲: <input type="text" name="head" value="{{ old('head', $baby_checkup->head) }}"></span>cm</li>

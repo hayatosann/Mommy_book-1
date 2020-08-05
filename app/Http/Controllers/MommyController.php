@@ -35,7 +35,7 @@ class MommyController extends Controller
         $baby = $baby->sortByDesc('id')->first();
         $birthdate = $baby['birthdate'];
         // dd($birthdate);
-        
+
         // 今日の日付
         $today = Carbon::today();
         // 予定日
@@ -71,9 +71,10 @@ class MommyController extends Controller
         };
 
         $id = Auth::user()->baby->sortByDesc("id")->take(1)->first()['id'];
-
+        $user_id = Auth::user()->id;
+        // dd($user_id);
         // dd($maternity_checkups);
-        return view('babies.mommy', ['maternity_checkups'=> $maternity_checkups, 'month' => $month, 'week' => $week, 'btn' => $btn, 'baby'=>$baby, 'id'=> $id]);
+        return view('babies.mommy', ['user_id'=> $user_id, 'maternity_checkups'=> $maternity_checkups, 'month' => $month, 'week' => $week, 'btn' => $btn, 'baby'=>$baby, 'id'=> $id]);
 
     }
 

@@ -10,10 +10,11 @@
 @endsection
 
 @section('register')
-<a href="{{route('albums.create')}}" class="register">登録</a>
+<a href="{{route('babies.mommies.albums.create', [$id, $user_id])}}" class="register">登録</a>
 @endsection
 
 @section('lists')
+@if($albums !== null)
 @foreach($albums as $album)
 <div class="wrapper_display">
     <div class="wrapper_lists">
@@ -23,8 +24,8 @@
             <li>成長の記録:{{$album->record}}</li>
         </ul>
         <div class="btn_edit">
-            <a href="{{route('albums.edit', $album->id)}}" class="edit">編集</a>
-            <form action="{{ route('albums.destroy', $album->id)}}" method="post">
+            <a href="{{route('babies.mommies.albums.edit', [$id, $user_id, $album->id])}}" class="edit">編集</a>
+            <form action="{{ route('babies.mommies.albums.destroy', [$id, $user_id, $album->id])}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <button class="delete">削除</button>
@@ -33,8 +34,9 @@
     </div>
 </div>
 @endforeach
+@endif
 @endsection
 
 @section('back')
-<a href="{{route('babies.index')}}" class="back">戻る</a>
+<a href="{{route('babies.show', [$id, $user_id])}}" class="back">戻る</a>
 @endsection

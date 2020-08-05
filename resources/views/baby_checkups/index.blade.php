@@ -21,7 +21,7 @@
     <div class="wrapper_lists">
         <ul class="lists_title">
         <li>検査年月日:{{$baby_checkup->date}}</li>
-        <li>体重:{{$baby_checkup->weight}}㎏</li>
+        <li>体重:{{$baby_checkup->weight}}g</li>
         <li>身長:{{$baby_checkup->height}}cm</li>
         <li>胸囲:{{$baby_checkup->chest}}cm</li>
         <li>頭囲:{{$baby_checkup->head}}cm</li>

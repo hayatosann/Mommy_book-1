@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ネスト
+Route::resource('mommies.maternity_checkups', 'Maternity_checkupController');
 
-Route::resource('maternity_checkups', 'Maternity_checkupController');
-
-
-Route::resource('albums', 'AlbumController');
+// ネスト
+Route::resource('babies.mommies.albums', 'AlbumController');
 
 
 Route::resource('vaccines', 'VaccineController');

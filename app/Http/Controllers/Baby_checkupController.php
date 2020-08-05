@@ -19,9 +19,9 @@ class Baby_checkupController extends Controller
      */
     public function index($id)
     {
-        $baby_checkups = Baby::find($id)->baby_checkups;    
+        $baby_checkups = Baby::find($id)->baby_checkups;
         return view('baby_checkups.index', ['baby_checkups'=> $baby_checkups, 'id' => $id]);
-        
+
     }
 
     /**
@@ -69,8 +69,8 @@ class Baby_checkupController extends Controller
         $date = Baby_checkup::orderBy('id', 'desc')->take(1)->get();
         $baby_tooth->baby_checkup_id = $date[0]['id'];
         $baby_tooth->save();
-        
-        
+
+
         // return redirect('babies.baby_checkups');
         return redirect()->route('babies.baby_checkups.index', $id);
     }
@@ -89,8 +89,8 @@ class Baby_checkupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id, $baby_checkup_id)
-    {   
-        $baby_checkup = Baby_checkup::find($baby_checkup_id); 
+    {
+        $baby_checkup = Baby_checkup::find($baby_checkup_id);
 
         return view('baby_checkups.edit', ['baby_checkup' => $baby_checkup, 'id' => $id, 'baby_checkup_id' => $baby_checkup_id ]);
     }
@@ -140,15 +140,16 @@ class Baby_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $baby_checkup_id)
     {
-        $baby_checkup = Baby_checkup::find($id);
+        // dd($baby_checkup_id);
+        $baby_checkup = Baby_checkup::find($baby_checkup_id);
         // dd($baby_checkup);
-        $baby_tooth = Baby_checkup::find($id)->baby_tooth;
+        $baby_tooth = Baby_checkup::find($baby_checkup_id)->baby_tooth;
         $baby_tooth->delete();
         $baby_checkup->delete();
-        
 
-         return redirect('baby_checkups');
+
+         return redirect()->route('babies.baby_checkups.index', $id);
     }
 }

@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('albums.store')}}" class="" method="post" enctype="multipart/form-data">
+<form action="{{route('babies.mommies.albums.store', [$id, $user_id])}}" class="" method="post" enctype="multipart/form-data">
 @endsection
 
 @section('lists')
