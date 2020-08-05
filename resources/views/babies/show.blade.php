@@ -109,7 +109,7 @@
   <div class="button-wrapper">
     <div class="buttons">
       <button><a href="#">カレンダー</a></button>
-      <button><a href="{{route('babies.mommies.albums.index', [$id, $user_id])}}">アルバム一覧</a></button>
+      <button><a href="{{route('babies.albums.index', $id)}}">アルバム一覧</a></button>
       <button><a href="#">成長の記録</a></button>
       <button><a href="{{route('mommies.index')}}">ママページに戻る</a></button>
     </div>

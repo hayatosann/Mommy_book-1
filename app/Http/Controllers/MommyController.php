@@ -64,7 +64,9 @@ class MommyController extends Controller
                     }else{
                         $week ='赤ちゃん生後:'.$age.'日';
                     };
-                };
+                }else{
+                   $week = "お誕生日を再設定してください";
+                }
         }elseif($day >= 30){
             $month = '妊娠 '.floor($day/30).'ヶ月';
             $week  = '妊娠 '.floor($week).'週目';

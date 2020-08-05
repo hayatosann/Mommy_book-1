@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('mommies.maternity_checkups', 'Maternity_checkupController');
 
 // ネスト
-Route::resource('babies.mommies.albums', 'AlbumController');
+Route::resource('babies.albums', 'AlbumController');
 
 
 Auth::routes();

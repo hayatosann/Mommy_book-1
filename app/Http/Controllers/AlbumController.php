@@ -22,15 +22,11 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id, $user_id)
+    public function index($id)
     {
-        // dd($id);
-        $user_id = Baby::find($id)->user_id;
-        // $user_id = $baby_id->user_id;
-        // ($babies);
-        $albums = Auth::user($user_id)->album;
+        $albums = Baby::find($id)->album;
         // dd($albums);
-        return view('albums.index', ['id'=>$id, 'user_id'=>$user_id, 'albums' => $albums]);
+        return view('albums.index', ['id'=>$id, 'albums' => $albums]);
     }
 
     /**
@@ -38,9 +34,10 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id, $user_id)
+    public function create($id)
     {
-        return view('albums.create', ['id'=>$id, 'user_id'=>$user_id]);
+        // dd($id);
+        return view('albums.create', ['id'=>$id]);
     }
 
     /**
@@ -49,7 +46,7 @@ class AlbumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id, $user_id)
+    public function store(Request $request, $id)
     {
         // dd($request);
 
@@ -59,7 +56,7 @@ class AlbumController extends Controller
         // dd($album);
         // $user_id = Baby::find($id)->user_id;
         // dd($album);
-        $album->user_id = $user_id;
+        $album->baby_id = $id;
         // dd($album->user_id);
         // $album->img = $request->img;
         if($image = $request->file('image')){
@@ -78,8 +75,8 @@ class AlbumController extends Controller
         $album->record = $request->record;
         $album->date = $request->date;
         $album->save();
-        // $id = Auth::user($user_id);
-        return redirect()->route('babies.mommies.albums.index', ['id'=>$id, 'user_id'=>$user_id]);
+        // dd($id);
+        return redirect()->route('babies.albums.index', $id);
     }
 
     /**
@@ -99,11 +96,11 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id, $user_id, $album_id)
+    public function edit(int $id, $album_id)
     {
         $album = Album::find($album_id);
         // dd($album);
-        return view('albums.edit', ['album' => $album, 'album_id' => $album_id, 'id'=>$id, 'user_id'=>$user_id]);
+        return view('albums.edit', ['album' => $album, 'album_id' => $album_id, 'id'=>$id]);
 
     }
 
@@ -114,7 +111,7 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $user_id, $album_id)
+    public function update(Request $request, $id, $album_id)
     {
         // dd($album_id);
         $album = Album::find($album_id);
@@ -133,9 +130,9 @@ class AlbumController extends Controller
         }
         $album->date = $request->date;
         $album->record = $request->record;
-        $album->user_id = $user_id;
+
         $album->save();
-        return redirect()->route('babies.mommies.albums.index', ['id'=>$id, 'user_id'=>$user_id]);
+        return redirect()->route('babies.albums.index', $id);
     }
 
     /**
@@ -144,14 +141,14 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id, $user_id, $album_id)
+    public function destroy(int $id, $album_id)
     {
         $album = Album::find($album_id);
         if(isset($album->public_id)){
             Cloudder::destroyImage($album->public_id);
         }
         $album->delete();
-        return redirect()->route('babies.mommies.albums.index', ['id'=>$id, 'user_id'=>$user_id]);
+        return redirect()->route('babies.albums.index', $id);
 
 
     }
