@@ -16,7 +16,7 @@ class Baby extends Model
     protected $fillable =[
         'nickname', 'gender', 'birthdate'
     ];
-    public function vaccine(){
+    public function vaccines(){
         return $this->hasMany('App\Vaccine');
     }
 

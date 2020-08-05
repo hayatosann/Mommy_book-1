@@ -117,7 +117,7 @@
                 @endif
           </p>
           <div class="detail-button">
-            <a href="{{route('vaccines.index')}}">一覧ページ</a>
+            <a href="{{route('babies.vaccines.index', $id)}}">一覧ページ</a>
           </div>
         </div>
       </div>

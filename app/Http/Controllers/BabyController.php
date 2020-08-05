@@ -178,7 +178,7 @@ class BabyController extends Controller
                  }
         }
 
-        $vaccine = Baby::find($id)->vaccine->sortByDesc("id")->take(1)->first();
+        $vaccine = Baby::find($id)->vaccines->sortByDesc("id")->take(1)->first();
         $baby_checkup = Baby::find($id)->baby_checkups->sortByDesc("id")->take(1)->first();
         // dd($vaccine);
         return view('babies.show', ['id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
