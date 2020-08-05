@@ -11,7 +11,7 @@
 
 <!-- 登録ボタンのフォーム -->
 @section('form')
-<form action="{{ route('vaccines.update', [$vaccine->id]) }}" method="post">
+<form action="{{ route('babies.vaccines.update', [$id, $vaccine_id]) }}" method="post">
 @csrf
 @method('put')
 @endsection

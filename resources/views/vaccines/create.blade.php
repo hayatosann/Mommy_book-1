@@ -11,7 +11,7 @@
 
 <!-- 登録ボタンのフォーム -->
 @section('form')
-<form action="{{ route('vaccines.store') }}" method="post">
+<form action="{{ route('babies.vaccines.store', $id) }}" method="post">
 @endsection
 
 @section('lists')

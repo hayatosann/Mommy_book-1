@@ -25,24 +25,24 @@
           <!-- 条件分岐 -->
           @if($kid->gender == "男性")
           {{-- <a href="{{route('babies.edit', $kid->id)}}"></a> --}}
-            <form action="{{route('babies.show', $kid->id)}}" post="get">
+            <a href="{{route('babies.show', $kid->id)}}">
             {{-- @csrf
             @method('put') --}}
             <button >{{$kid->nickname}}くん</button>
             </form>
           @elseif($kid->gender == "女性")
             {{-- <a href="{{route('babies.edit', $kid->id)}}" class="girl"></a> --}}
-            <form action="{{route('babies.show', $kid->id)}}" post="get">
+            <a href="{{route('babies.show', $kid->id)}}">
             {{-- @csrf
             @method('put') --}}
-            <button class="girl">{{$kid->nickname}}ちゃん</button>
+            <button class="girl">{{$kid->nickname}}ちゃん</button></a>
             </form>
           @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
-            <form action="{{route('babies.show', $kid->id)}}" post="get">
+            <a href="{{route('babies.show', $kid->id)}}">
             {{-- @csrf
             @method('put') --}}
-            <button class="none">{{$kid->nickname}}ちゃん</button>
+            <button class="none">{{$kid->nickname}}ちゃん</button></a>
             </form>
           @endif
         @endforeach
@@ -98,7 +98,7 @@
             @endif
           </p>
           <div class="detail-button">
-            <a href="{{route('baby_checkups.index')}}">一覧ページ</a>
+            <a href="{{route('babies.baby_checkups.index', $id)}}">一覧ページ</a>
           </div>
         </div>
         <div class="detail">
@@ -117,7 +117,7 @@
                 @endif
           </p>
           <div class="detail-button">
-            <a href="{{route('vaccines.index')}}">一覧ページ</a>
+            <a href="{{route('babies.vaccines.index', $id)}}">一覧ページ</a>
           </div>
         </div>
       </div>

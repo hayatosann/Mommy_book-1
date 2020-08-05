@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('baby_checkups.store')}}" class="" method="post">
+<form action="{{route('babies.baby_checkups.store', $id)}}" class="" method="post">
 @endsection
 
 @section('lists')

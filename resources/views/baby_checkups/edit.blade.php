@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('baby_checkups.update',$baby_checkup->id)}}" method="POST">
+<form action="{{route('babies.baby_checkups.update',[$id, $baby_checkup_id])}}" method="POST">
 @csrf
 @method('PATCH')
 @endsection
