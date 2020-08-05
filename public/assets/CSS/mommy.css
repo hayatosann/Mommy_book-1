@@ -21,6 +21,10 @@ header {
 .header-right {
   margin-right: 20px;
 }
+.navbar-brand h2{
+  color:white;
+}
+
 .fas {
   font-size: 30px;
   cursor: pointer;

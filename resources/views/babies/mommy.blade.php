@@ -8,14 +8,16 @@
   <link rel="stylesheet" href="{{ asset('/assets/css/mommy.css')}}">
 </head>
 <body>
-  <header>
+  @include('layouts.app')
+  
+  {{-- <header>
     <div class="header-left">
       <h2>Mommy Book</h2>
     </div>
     <div class="header-right">
       <i class="fas fa-bars"></i>
     </div>
-  </header>
+  </header> --}}
 
   <div class="top-wrapper">
     <div class="top-box">
