@@ -147,7 +147,7 @@ class BabyController extends Controller
         // dd($user_id);
          $baby = Baby::find($id);
          $kids = Auth::user()->baby;
-        //  dd($kids);
+         $baby_id = $baby->id;
          foreach ($kids as $kid){
              // $baby = Baby::find($id);
              // $baby_id = $baby->id;
@@ -181,7 +181,7 @@ class BabyController extends Controller
         $vaccine = Baby::find($id)->vaccines->sortByDesc("id")->take(1)->first();
         $baby_checkup = Baby::find($id)->baby_checkups->sortByDesc("id")->take(1)->first();
         // dd($vaccine);
-        return view('babies.show', ['user_id'=>$user_id, 'id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
+        return view('babies.show', ['baby_id'=>$baby_id, 'user_id'=>$user_id, 'id'=> $id, 'kids' => $kids, 'age' => $age, 'baby_checkup' => $baby_checkup, 'vaccine' => $vaccine]);
     }
 
     /**

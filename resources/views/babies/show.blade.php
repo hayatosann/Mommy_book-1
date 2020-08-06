@@ -39,7 +39,20 @@
   <div class="top-wrapper">
     <div class="top-box">
       <div class="box">
-        <img src="{{ asset('/img/boybaby.png') }}" alt="">
+            @foreach($kids as $kid)
+                @if($baby_id == $kid['id'])
+                    @if($kid->gender == "男性")
+                        <span>{{$kid->nickname}}くん</span>
+                    @elseif($kid->gender == "女性")
+                        <span>{{$kid->nickname}}ちゃん</span>
+                    @elseif($kid->gender == "no comment")
+                        <span>{{$kid->nickname}}ちゃん</span>
+                    @endif
+                @endif
+            @endforeach
+        <div class="baby_img">
+            <img src="{{ asset('/img/boybaby.png') }}" alt="">
+        </div>
       </div>
     </div>
   </div>
