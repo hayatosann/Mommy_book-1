@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
 
     <title>おなかの赤ちゃん＆お子様（ご兄弟）のプロフィールご登録</title>
