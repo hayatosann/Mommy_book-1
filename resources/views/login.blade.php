@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
 
     <title>Mommy_Book</title>
