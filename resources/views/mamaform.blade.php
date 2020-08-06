@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
 
     <title>親御様のプロフィールご登録</title>
   </head>
@@ -50,7 +50,7 @@
               <a href="confirm.html" class="btn-flat-border">入力完了</a>
             </div>
           </form>
-          
+
         </div>
       </div>
     </div>

@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mommy</title>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('/assets/css/mommy.css')}}">
+  <link rel="stylesheet" href="{{asset('/assets/css/mommy.css')}}">
 </head>
 <body>
   @include('layouts.app')
-  
+
   {{-- <header>
     <div class="header-left">
       <h2>Mommy Book</h2>

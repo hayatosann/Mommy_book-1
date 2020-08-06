@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>baby</title>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('/assets/css/baby.css')}}">
+  <link rel="stylesheet" href="{{asset('/assets/css/baby.css')}}">
 </head>
 <body>
   <header>

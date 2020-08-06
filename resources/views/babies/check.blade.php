@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
 
     <title>おなかの赤ちゃん＆お子様（ご兄弟）のプロフィール登録</title>
   </head>
@@ -41,7 +41,7 @@
             <button class="btn-flat-border" id="register">確認次のお子様の登録</button>
             </form>
           <!-- <div class="login">
-              
+
           </div> -->
         </div>
       </div>

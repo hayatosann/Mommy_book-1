@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
 
     <title>Mommy_Book</title>
   </head>
