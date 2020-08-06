@@ -6,7 +6,7 @@
     <meta name="viewliort" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrali CSS -->
-    <link rel="stylesheet" href="bootstrali.min.css">
+    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
 
     <title>親御様のプロフィール登録確認画面</title>
