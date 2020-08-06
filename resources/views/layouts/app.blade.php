@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/mommy.css')}}">
     <link rel="stylesheet" href="assets/CSS/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('/assets/css/app.css') }}" rel="stylesheet">
+
 </head>
 <body style="background-color: white">
-    
+
 <div id="app">
     <header>
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
