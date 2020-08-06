@@ -15,7 +15,7 @@
 
 @section('lists')
 <li>検査年月日:<span><input type="date" name="date"></span></li>
-<li>体重: <span><input type="text" name="weight"></span>㎏</li>
+<li>体重: <span><input type="text" name="weight"></span>g</li>
 <li>身長: <input type="text" name="height"></span>cm</li>
 <li>胸囲: <input type="text" name="chest"></span>cm</li>
 <li>頭囲: <input type="text" name="head"></span>cm</li>
@@ -117,5 +117,5 @@
 @endsection
 
 @section('back')
-<a href="" class="back">完了</a>
+<a href="{{route('babies.show', $id)}}" class="back">戻る</a>
 @endsection

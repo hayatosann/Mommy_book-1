@@ -35,7 +35,7 @@ header {
   padding: 0 10px;
 
 }
-.bars a, .bars button {
+.create_baby a, .bars button {
   font-size: 7px;
   background-color: rgb(10, 157, 255);
   color: black;
@@ -63,12 +63,35 @@ header {
 /* top-wrappper css */
 .top-box {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* align-items: center; */
   background-color: pink;
   border-radius: 30px;
   margin: 0 10px;
   padding: 15px 10px;
+}
+/* 追加 */
+.box{
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: center; */
+    /* justify-content: center; */
+    width: 80%;
+}
+.box span{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width:40%;
+    font-size: 24px;
+    color: white;
+}
+.baby_img{
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .box img {
   width: 180px;
@@ -170,11 +193,8 @@ footer {
 }
 
 /* 追加 */
-.babies{
+/* .babies{
     display: flex;
     flex-direction: row;
 }
-
-.babies form{
-    margin-right: 5px;
-}
+ */

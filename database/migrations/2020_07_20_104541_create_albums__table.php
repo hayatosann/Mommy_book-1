@@ -16,13 +16,13 @@ class CreateAlbumsTable extends Migration
         // albumsテーブルの情報
         Schema::create('albums', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('baby_id');
             $table->string('img', 255)->nullable();
             $table->text('record')->nullable();
             $table->date('date');
             $table->timestamps();
             // 外部キー
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('baby_id')->references('id')->on('babies');
         });
     }
 

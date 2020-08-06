@@ -1,8 +1,6 @@
 <?php
 
 namespace App;
-// namespace App\Vaccine;
-// namespace App\Baby_checkup;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -22,5 +20,9 @@ class Baby extends Model
 
     public function baby_checkups(){
         return $this->hasMany('App\Baby_checkup');
+    }
+
+    public function album(){
+        return $this->hasMany ('App\album');
     }
 }

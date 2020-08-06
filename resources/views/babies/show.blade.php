@@ -17,26 +17,15 @@
         @foreach($kids as $kid)
           <!-- 条件分岐 -->
           @if($kid->gender == "男性")
-          {{-- <a href="{{route('babies.edit', $kid->id)}}"></a> --}}
             <a href="{{route('babies.show', $kid->id)}}">
-            {{-- @csrf
-            @method('put') --}}
-            <button >{{$kid->nickname}}くん</button>
-            </form>
+            <button >{{$kid->nickname}}くん</button></a>
           @elseif($kid->gender == "女性")
-            {{-- <a href="{{route('babies.edit', $kid->id)}}" class="girl"></a> --}}
             <a href="{{route('babies.show', $kid->id)}}">
-            {{-- @csrf
-            @method('put') --}}
             <button class="girl">{{$kid->nickname}}ちゃん</button></a>
-            </form>
           @elseif($kid->gender == "no comment")
             <!--性別が選択されていない場合 -->
             <a href="{{route('babies.show', $kid->id)}}">
-            {{-- @csrf
-            @method('put') --}}
             <button class="none">{{$kid->nickname}}ちゃん</button></a>
-            </form>
           @endif
         @endforeach
         </form>
@@ -50,7 +39,20 @@
   <div class="top-wrapper">
     <div class="top-box">
       <div class="box">
-        <img src="{{ asset('/img/boybaby.png') }}" alt="">
+            @foreach($kids as $kid)
+                @if($baby_id == $kid['id'])
+                    @if($kid->gender == "男性")
+                        <span>{{$kid->nickname}}くん</span>
+                    @elseif($kid->gender == "女性")
+                        <span>{{$kid->nickname}}ちゃん</span>
+                    @elseif($kid->gender == "no comment")
+                        <span>{{$kid->nickname}}ちゃん</span>
+                    @endif
+                @endif
+            @endforeach
+        <div class="baby_img">
+            <img src="{{ asset('/img/boybaby.png') }}" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -120,8 +122,8 @@
   <div class="button-wrapper">
     <div class="buttons">
       <button><a href="#">カレンダー</a></button>
-      <button><a href="{{route('albums.index')}}">アルバム一覧</a></button>
-      <button><a href="#">成長の記録</a></button>
+      <button><a href="{{route('babies.albums.index', $id)}}">アルバム一覧</a></button>
+      <button><a href="{{route('babies.albums.create', $id)}}">成長の記録</a></button>
       <button><a href="{{route('mommies.index')}}">ママページに戻る</a></button>
     </div>
   </div>

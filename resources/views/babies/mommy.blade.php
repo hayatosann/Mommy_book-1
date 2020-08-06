@@ -63,7 +63,7 @@
         @endforeach
         </p>
         <div class="detail-button">
-          <a href="{{route('maternity_checkups.index')}}">一覧ページ</a>
+          <a href="{{route('mommies.maternity_checkups.index', $user_id)}}">一覧ページ</a>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
 
   <div class="button-wrapper">
     <div class="buttons">
-      <button><a href="{{route('maternity_checkups.create')}}">検診結果入力</a></button>
+      <button><a href="{{route('mommies.maternity_checkups.create', $user_id)}}">検診結果入力</a></button>
       <button><a href="{{route('babies.show', $id)}}">赤ちゃんページ</a></button>
       <button><a href="#">カレンダー</a></button>
       <button><a href="#">子育て情報一覧</a></button>

@@ -10,7 +10,7 @@
 @endsection
 
 @section('form')
-<form action="{{route('maternity_checkups.store')}}" class="" method="post">
+<form action="{{route('mommies.maternity_checkups.store', $user_id)}}" class="" method="post">
 @endsection
 
 @section('lists')
@@ -54,5 +54,5 @@
 @endsection
 
 @section('back')
-<a href="" class="back">完了</a>
+<a href="{{route('mommies.index')}}" class="back">戻る</a>
 @endsection

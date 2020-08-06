@@ -11,12 +11,6 @@ class User extends Authenticatable
         return $this->hasMany ('App\Maternity_checkup');
     }
 
-
-    public function album(){
-        return $this->hasMany ('App\album');
-    }
-    use Notifiable;
-
     public function baby(){
         return $this->hasMany('App\Baby');
     }    use Notifiable;

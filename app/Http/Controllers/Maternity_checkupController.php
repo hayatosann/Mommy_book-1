@@ -13,11 +13,12 @@ class Maternity_checkupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $maternity_checkups = Maternity_checkup::all();
-
-        return view('maternity_checkups.index', ['maternity_checkups'=> $maternity_checkups]);
+        // dd($user_id);
+        $maternity_checkups = Auth::user($user_id)->maternity_checkup;
+        // dd($maternity_checkups);
+        return view('maternity_checkups.index', ['user_id'=> $user_id, 'maternity_checkups'=> $maternity_checkups]);
         // return view('momcheckups');
     }
 
@@ -26,9 +27,9 @@ class Maternity_checkupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user_id)
     {
-        return view('maternity_checkups.create');
+        return view('maternity_checkups.create',['user_id'=>$user_id]);
     }
 
     /**
@@ -37,9 +38,9 @@ class Maternity_checkupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $user_id)
     {
-        // dd($request);
+        // dd($user_id);
         $maternity_checkup = new Maternity_checkup();
 
         $maternity_checkup->date = $request->date;
@@ -52,10 +53,10 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->urinal_protein = $request->urinal_protein;
         $maternity_checkup->urinal_sugar = $request->urinal_sugar;
         $maternity_checkup->note = $request->note;
-        $maternity_checkup->user_id = Auth::user()->id;
+        $maternity_checkup->user_id = $user_id;
         $maternity_checkup->save();
 
-        return redirect('maternity_checkups');
+        return redirect()->route('mommies.maternity_checkups.index', $user_id);
     }
 
     /**
@@ -75,12 +76,11 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user_id, $id)
     {
-
         $maternity_checkup = Maternity_checkup::find($id);
 
-        return view('maternity_checkups.edit', compact('maternity_checkup'));
+        return view('maternity_checkups.edit', ['id'=>$id, 'user_id'=>$user_id, 'maternity_checkup'=>$maternity_checkup]);
     }
 
     /**
@@ -90,7 +90,7 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user_id, $id)
     {
         //
         $maternity_checkup = Maternity_checkup::find($id);
@@ -105,10 +105,10 @@ class Maternity_checkupController extends Controller
         $maternity_checkup->urinal_protein = $request->urinal_protein;
         $maternity_checkup->urinal_sugar = $request->urinal_sugar;
         $maternity_checkup->note = $request->note;
-        $maternity_checkup->user_id = 1;
+        $maternity_checkup->user_id = $user_id;
         $maternity_checkup->save(); //DBに保存
 
-    return redirect()->route('maternity_checkups.index');
+    return redirect()->route('mommies.maternity_checkups.index', $user_id);
     }
 
     /**
@@ -117,17 +117,15 @@ class Maternity_checkupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy($user_id, $id)
     {
-        // dd($id);
-        // dd($id);
         // // Maternity_checkupモデルを使用し、maternity_checkupsテーブルから$idと
         // // 一致するidを持つデータを取得
         $maternity_checkup = Maternity_checkup::find($id);
-        // // dd($id);
+        // dd($maternity_checkup);
         $maternity_checkup->delete();
 
-         return redirect('maternity_checkups');
+         return redirect()->route('mommies.maternity_checkups.index', $user_id);
 
 
     }
