@@ -17,12 +17,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('/assets/css/mommy.css')}}">
+    <link rel="stylesheet" href="{{ asset('/assets/CSS/mommy.css')}}">
     <!-- 追加 -->
-    <link rel="stylesheet" href="{{asset('/assets/css/baby.css')}}">
-    <link rel="stylesheet" href="assets/CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
-    <link href="{{ asset('/assets/css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/assets/CSS/baby.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/CSS/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/assets/CSS/style.css')}}">
+    <link href="{{ asset('/assets/CSS/app.css') }}" rel="stylesheet">
 
 </head>
 <body style="background-color: white">
