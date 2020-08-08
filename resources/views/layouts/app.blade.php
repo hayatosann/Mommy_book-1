@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('/assets/css/mommy.css')}}">
+    <!-- 追加 -->
+    <link rel="stylesheet" href="{{asset('/assets/css/baby.css')}}">
     <link rel="stylesheet" href="assets/CSS/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
     <link href="{{ asset('/assets/css/app.css') }}" rel="stylesheet">
